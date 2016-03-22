@@ -1,0 +1,2 @@
+\\mac\home\documents\visual studio 2015\Projects\ReloadingData_Wehrle\ReloadingData_Wehrle\bin\Debug\ReloadingData_Wehrle.exe.config
+\\Mac\Home\Documents\Advanced VB\Final Project\ReloadingData_Wehrle\ReloadingData_Wehrle\bin\Debug\ReloadingData_Wehrle.exe.config
