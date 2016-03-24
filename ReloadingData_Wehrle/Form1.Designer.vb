@@ -242,7 +242,7 @@ Partial Class Form1
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'AboutToolStripMenuItem
@@ -262,7 +262,7 @@ Partial Class Form1
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(362, 288)
+        Me.Button5.Location = New System.Drawing.Point(370, 288)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(129, 23)
         Me.Button5.TabIndex = 53
