@@ -32,13 +32,17 @@ Partial Class AddComponents
         Me.txt3 = New System.Windows.Forms.TextBox()
         Me.cboComponentType = New System.Windows.Forms.ComboBox()
         Me.txt1 = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnReturn = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
         Me.radRifle = New System.Windows.Forms.RadioButton()
         Me.dgvComponents = New System.Windows.Forms.DataGridView()
         Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtID = New System.Windows.Forms.TextBox()
         Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
         Me.CartridgeDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BulletBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -47,8 +51,10 @@ Partial Class AddComponents
         Me.CartridgeTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.CartridgeTableAdapter()
         Me.PowderBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PowderTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.PowderTableAdapter()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         CType(Me.dgvComponents, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.StatusStrip1.SuspendLayout()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BulletBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,7 +125,7 @@ Partial Class AddComponents
         Me.cboComponentType.Location = New System.Drawing.Point(84, 49)
         Me.cboComponentType.Name = "cboComponentType"
         Me.cboComponentType.Size = New System.Drawing.Size(121, 21)
-        Me.cboComponentType.TabIndex = 1
+        Me.cboComponentType.TabIndex = 44
         '
         'txt1
         '
@@ -128,14 +134,14 @@ Partial Class AddComponents
         Me.txt1.Size = New System.Drawing.Size(121, 20)
         Me.txt1.TabIndex = 2
         '
-        'Button3
+        'btnReturn
         '
-        Me.Button3.Location = New System.Drawing.Point(753, 328)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(115, 23)
-        Me.Button3.TabIndex = 8
-        Me.Button3.Text = "Return To Home"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnReturn.Location = New System.Drawing.Point(753, 328)
+        Me.btnReturn.Name = "btnReturn"
+        Me.btnReturn.Size = New System.Drawing.Size(115, 23)
+        Me.btnReturn.TabIndex = 8
+        Me.btnReturn.Text = "Return To Home"
+        Me.btnReturn.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -153,14 +159,14 @@ Partial Class AddComponents
         Me.Label4.Size = New System.Drawing.Size(0, 13)
         Me.Label4.TabIndex = 69
         '
-        'Button4
+        'btnAdd
         '
-        Me.Button4.Location = New System.Drawing.Point(753, 277)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(100, 23)
-        Me.Button4.TabIndex = 7
-        Me.Button4.Text = "Add Selection"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnAdd.Location = New System.Drawing.Point(753, 288)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(100, 23)
+        Me.btnAdd.TabIndex = 7
+        Me.btnAdd.Text = "Add Selection"
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'radRifle
         '
@@ -187,6 +193,36 @@ Partial Class AddComponents
         'errProvider
         '
         Me.errProvider.ContainerControl = Me
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 373)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(896, 22)
+        Me.StatusStrip1.TabIndex = 83
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'lblStatus
+        '
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(0, 17)
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(668, 57)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(18, 13)
+        Me.Label1.TabIndex = 84
+        Me.Label1.Text = "ID"
+        '
+        'txtID
+        '
+        Me.txtID.Location = New System.Drawing.Point(753, 54)
+        Me.txtID.Name = "txtID"
+        Me.txtID.Size = New System.Drawing.Size(121, 20)
+        Me.txtID.TabIndex = 1
         '
         'CartridgeDataSet
         '
@@ -225,11 +261,26 @@ Partial Class AddComponents
         '
         Me.PowderTableAdapter.ClearBeforeFill = True
         '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(753, 254)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(69, 17)
+        Me.RadioButton1.TabIndex = 85
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Handgun"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
         'AddComponents
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(896, 395)
+        Me.Controls.Add(Me.RadioButton1)
+        Me.Controls.Add(Me.txtID)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.dgvComponents)
         Me.Controls.Add(Me.radRifle)
         Me.Controls.Add(Me.lbl4)
@@ -241,14 +292,16 @@ Partial Class AddComponents
         Me.Controls.Add(Me.txt3)
         Me.Controls.Add(Me.cboComponentType)
         Me.Controls.Add(Me.txt1)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.btnReturn)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.btnAdd)
         Me.Name = "AddComponents"
         Me.Text = "AddComponents"
         CType(Me.dgvComponents, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BulletBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -268,10 +321,10 @@ Partial Class AddComponents
     Friend WithEvents txt3 As TextBox
     Friend WithEvents cboComponentType As ComboBox
     Friend WithEvents txt1 As TextBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnReturn As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Button4 As Button
+    Friend WithEvents btnAdd As Button
     Friend WithEvents radRifle As RadioButton
     Friend WithEvents dgvComponents As DataGridView
     Friend WithEvents errProvider As ErrorProvider
@@ -283,4 +336,9 @@ Partial Class AddComponents
     Friend WithEvents CartridgeTableAdapter As CartridgeDataSetTableAdapters.CartridgeTableAdapter
     Friend WithEvents PowderBindingSource As BindingSource
     Friend WithEvents PowderTableAdapter As CartridgeDataSetTableAdapters.PowderTableAdapter
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents lblStatus As ToolStripStatusLabel
+    Friend WithEvents txtID As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents RadioButton1 As RadioButton
 End Class

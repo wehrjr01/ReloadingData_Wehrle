@@ -1,35 +1,32 @@
-﻿Option Strict On
-Option Explicit On
-
-Public Class Loads
-    Private adapter As New CartridgeDataSetTableAdapters.LoadsTableAdapter
+﻿Public Class Powders
+    Private adapter As New CartridgeDataSetTableAdapters.PowderTableAdapter
     Public Shared Property LastError As String
 
-    Public Function Insert(ByVal cartName As String,
-                           ByVal bulletId As Integer,
-                           ByVal primer As String,
-                           ByVal powderName As String,
-                           ByVal powderWeight As Decimal,
-                           ByVal oAL As Decimal,
-                           ByVal chronoId As Integer) As Boolean
+    Public Function Insert(ByVal manufacturer As String,
+                           ByVal name As String,
+                           ByVal rifle As Boolean) As Boolean
         Try
             LastError = String.Empty
-            adapter.Insert(cartName, bulletId, primer, powderName, powderWeight, oAL, chronoId)
+            adapter.Insert(manufacturer, name, rifle)
             Return True
-
         Catch ex As Exception
             LastError = ex.Message
             Return False
 
         End Try
     End Function
-    Public ReadOnly Property Items As DataTable
+    'Public ReadOnly Property Items As DataTable
+    '    Get
+    '        Return adapter.GetData()
+    '    End Get
+    'End Property
+    Public ReadOnly Property Items() As DataTable
         Get
-            Return adapter.GetData()
+            Dim table As DataTable = adapter.GetData()
+            table.DefaultView.Sort = "Name"
+            Return table
         End Get
     End Property
-
-
     'Public Shared Function CombinedDateTime(ByVal aDate As DateTime, ByVal aTime As DateTime) As DateTime
     '    Dim ts As New TimeSpan(aTime.Hour, aTime.Minute, 0)
     '    Return aDate.Add(ts)
@@ -68,8 +65,8 @@ Public Class Loads
     '    Return table.FindByApptId(apptId)
     'End Function
 
-    Public Function Delete(ByVal loadId As Integer) As Boolean
-        Dim rowsAffected As Integer = adapter.Delete(loadId)
+    Public Function Delete(ByVal powderName As Integer) As Boolean
+        Dim rowsAffected As Integer = adapter.Delete(powderName)
         Return rowsAffected > 0
     End Function
     'Public ReadOnly Property AppointmentList As DataTable
@@ -78,6 +75,5 @@ Public Class Loads
     '        Return listAdapter.GetData()
     '    End Get
     'End Property
-
 
 End Class
