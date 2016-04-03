@@ -130,6 +130,7 @@ Partial Class AddComponents
         Me.cboComponentType.Name = "cboComponentType"
         Me.cboComponentType.Size = New System.Drawing.Size(121, 21)
         Me.cboComponentType.TabIndex = 44
+        Me.cboComponentType.TabStop = False
         '
         'txt1
         '

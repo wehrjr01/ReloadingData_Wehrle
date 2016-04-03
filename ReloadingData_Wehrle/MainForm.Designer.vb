@@ -23,8 +23,6 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.cboDiameter = New System.Windows.Forms.ComboBox()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.cboBulletWeight = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,7 +47,6 @@ Partial Class MainForm
         Me.btnDeleteLoad = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -62,21 +59,6 @@ Partial Class MainForm
         Me.cboDiameter.Name = "cboDiameter"
         Me.cboDiameter.Size = New System.Drawing.Size(121, 21)
         Me.cboDiameter.TabIndex = 0
-        '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 360)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(682, 22)
-        Me.StatusStrip1.TabIndex = 2
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(120, 17)
-        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
         '
         'cboBulletWeight
         '
@@ -221,13 +203,13 @@ Partial Class MainForm
         'mnuItmAddComponents
         '
         Me.mnuItmAddComponents.Name = "mnuItmAddComponents"
-        Me.mnuItmAddComponents.Size = New System.Drawing.Size(152, 22)
+        Me.mnuItmAddComponents.Size = New System.Drawing.Size(143, 22)
         Me.mnuItmAddComponents.Text = "Components"
         '
         'mnuItmAddLoad
         '
         Me.mnuItmAddLoad.Name = "mnuItmAddLoad"
-        Me.mnuItmAddLoad.Size = New System.Drawing.Size(152, 22)
+        Me.mnuItmAddLoad.Size = New System.Drawing.Size(143, 22)
         Me.mnuItmAddLoad.Text = "Load"
         '
         'mnuItmExit
@@ -300,12 +282,9 @@ Partial Class MainForm
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cboBulletWeight)
-        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.cboDiameter)
         Me.Name = "MainForm"
         Me.Text = "Reloading Database"
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -317,8 +296,6 @@ Partial Class MainForm
     End Sub
 
     Friend WithEvents cboDiameter As ComboBox
-    Friend WithEvents StatusStrip1 As StatusStrip
-    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents cboBulletWeight As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
