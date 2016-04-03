@@ -43,6 +43,7 @@ Partial Class AddComponents
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtID = New System.Windows.Forms.TextBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
         Me.CartridgeDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BulletBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -51,7 +52,9 @@ Partial Class AddComponents
         Me.CartridgeTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.CartridgeTableAdapter()
         Me.PowderBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PowderTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.PowderTableAdapter()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.dgvComponents, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -60,6 +63,7 @@ Partial Class AddComponents
         CType(Me.BulletBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PowderBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbl4
@@ -122,7 +126,7 @@ Partial Class AddComponents
         'cboComponentType
         '
         Me.cboComponentType.FormattingEnabled = True
-        Me.cboComponentType.Location = New System.Drawing.Point(84, 49)
+        Me.cboComponentType.Location = New System.Drawing.Point(145, 54)
         Me.cboComponentType.Name = "cboComponentType"
         Me.cboComponentType.Size = New System.Drawing.Size(121, 21)
         Me.cboComponentType.TabIndex = 44
@@ -136,7 +140,7 @@ Partial Class AddComponents
         '
         'btnReturn
         '
-        Me.btnReturn.Location = New System.Drawing.Point(753, 328)
+        Me.btnReturn.Location = New System.Drawing.Point(753, 336)
         Me.btnReturn.Name = "btnReturn"
         Me.btnReturn.Size = New System.Drawing.Size(115, 23)
         Me.btnReturn.TabIndex = 8
@@ -161,7 +165,7 @@ Partial Class AddComponents
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(753, 288)
+        Me.btnAdd.Location = New System.Drawing.Point(753, 307)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(100, 23)
         Me.btnAdd.TabIndex = 7
@@ -171,7 +175,7 @@ Partial Class AddComponents
         'radRifle
         '
         Me.radRifle.AutoSize = True
-        Me.radRifle.Location = New System.Drawing.Point(753, 229)
+        Me.radRifle.Location = New System.Drawing.Point(6, 19)
         Me.radRifle.Name = "radRifle"
         Me.radRifle.Size = New System.Drawing.Size(46, 17)
         Me.radRifle.TabIndex = 6
@@ -187,6 +191,7 @@ Partial Class AddComponents
         Me.dgvComponents.Location = New System.Drawing.Point(12, 89)
         Me.dgvComponents.Name = "dgvComponents"
         Me.dgvComponents.ReadOnly = True
+        Me.dgvComponents.RowHeadersVisible = False
         Me.dgvComponents.Size = New System.Drawing.Size(650, 211)
         Me.dgvComponents.TabIndex = 82
         '
@@ -223,6 +228,17 @@ Partial Class AddComponents
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(121, 20)
         Me.txtID.TabIndex = 1
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(6, 42)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(69, 17)
+        Me.RadioButton1.TabIndex = 85
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Handgun"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'CartridgeDataSet
         '
@@ -261,28 +277,46 @@ Partial Class AddComponents
         '
         Me.PowderTableAdapter.ClearBeforeFill = True
         '
-        'RadioButton1
+        'GroupBox1
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(753, 254)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(69, 17)
-        Me.RadioButton1.TabIndex = 85
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Handgun"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.GroupBox1.Controls.Add(Me.radRifle)
+        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Location = New System.Drawing.Point(753, 218)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(135, 63)
+        Me.GroupBox1.TabIndex = 86
+        Me.GroupBox1.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(668, 241)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(58, 13)
+        Me.Label2.TabIndex = 87
+        Me.Label2.Text = "Load Type"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(12, 57)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(127, 13)
+        Me.Label3.TabIndex = 88
+        Me.Label3.Text = "Choose Component Type"
         '
         'AddComponents
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(896, 395)
-        Me.Controls.Add(Me.RadioButton1)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.dgvComponents)
-        Me.Controls.Add(Me.radRifle)
         Me.Controls.Add(Me.lbl4)
         Me.Controls.Add(Me.lbl3)
         Me.Controls.Add(Me.lbl2)
@@ -307,6 +341,8 @@ Partial Class AddComponents
         CType(Me.BulletBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PowderBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -341,4 +377,7 @@ Partial Class AddComponents
     Friend WithEvents txtID As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents Label2 As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label3 As Label
 End Class

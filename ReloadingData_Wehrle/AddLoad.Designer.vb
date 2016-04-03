@@ -28,16 +28,14 @@ Partial Class AddLoad
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cboBulletId = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.cmbCartridges = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.cboCaliberName = New System.Windows.Forms.ComboBox()
+        Me.cboPowder = New System.Windows.Forms.ComboBox()
+        Me.txtPowderWeight = New System.Windows.Forms.TextBox()
+        Me.txtOal = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -101,13 +99,13 @@ Partial Class AddLoad
         Me.Label3.TabIndex = 27
         Me.Label3.Text = "Powder Name"
         '
-        'ComboBox2
+        'cboBulletId
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(16, 144)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 26
+        Me.cboBulletId.FormattingEnabled = True
+        Me.cboBulletId.Location = New System.Drawing.Point(16, 144)
+        Me.cboBulletId.Name = "cboBulletId"
+        Me.cboBulletId.Size = New System.Drawing.Size(121, 21)
+        Me.cboBulletId.TabIndex = 26
         '
         'Button2
         '
@@ -123,9 +121,9 @@ Partial Class AddLoad
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(143, 147)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 13)
+        Me.Label2.Size = New System.Drawing.Size(45, 13)
         Me.Label2.TabIndex = 24
-        Me.Label2.Text = "Bullet Weight"
+        Me.Label2.Text = "Bullet Id"
         '
         'Label1
         '
@@ -136,52 +134,35 @@ Partial Class AddLoad
         Me.Label1.TabIndex = 23
         Me.Label1.Text = "Caliber"
         '
-        'ComboBox1
+        'cboCaliberName
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(16, 117)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 21
+        Me.cboCaliberName.FormattingEnabled = True
+        Me.cboCaliberName.Location = New System.Drawing.Point(16, 117)
+        Me.cboCaliberName.Name = "cboCaliberName"
+        Me.cboCaliberName.Size = New System.Drawing.Size(121, 21)
+        Me.cboCaliberName.TabIndex = 21
         '
-        'cmbCartridges
+        'cboPowder
         '
-        Me.cmbCartridges.FormattingEnabled = True
-        Me.cmbCartridges.Location = New System.Drawing.Point(16, 90)
-        Me.cmbCartridges.Name = "cmbCartridges"
-        Me.cmbCartridges.Size = New System.Drawing.Size(121, 21)
-        Me.cmbCartridges.TabIndex = 19
+        Me.cboPowder.FormattingEnabled = True
+        Me.cboPowder.Location = New System.Drawing.Point(16, 171)
+        Me.cboPowder.Name = "cboPowder"
+        Me.cboPowder.Size = New System.Drawing.Size(121, 21)
+        Me.cboPowder.TabIndex = 34
         '
-        'ComboBox3
+        'txtPowderWeight
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(16, 171)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 34
+        Me.txtPowderWeight.Location = New System.Drawing.Point(16, 198)
+        Me.txtPowderWeight.Name = "txtPowderWeight"
+        Me.txtPowderWeight.Size = New System.Drawing.Size(121, 20)
+        Me.txtPowderWeight.TabIndex = 36
         '
-        'Label6
+        'txtOal
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(143, 93)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(71, 13)
-        Me.Label6.TabIndex = 35
-        Me.Label6.Text = "Load Number"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(16, 198)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(121, 20)
-        Me.TextBox1.TabIndex = 36
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(16, 224)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(121, 20)
-        Me.TextBox2.TabIndex = 37
+        Me.txtOal.Location = New System.Drawing.Point(16, 224)
+        Me.txtOal.Name = "txtOal"
+        Me.txtOal.Size = New System.Drawing.Size(121, 20)
+        Me.txtOal.TabIndex = 37
         '
         'Label7
         '
@@ -230,20 +211,18 @@ Partial Class AddLoad
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.ComboBox3)
+        Me.Controls.Add(Me.txtOal)
+        Me.Controls.Add(Me.txtPowderWeight)
+        Me.Controls.Add(Me.cboPowder)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.cboBulletId)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.cmbCartridges)
+        Me.Controls.Add(Me.cboCaliberName)
         Me.Name = "AddLoad"
         Me.Text = "AddLoad"
         Me.GroupBox1.ResumeLayout(False)
@@ -258,16 +237,14 @@ Partial Class AddLoad
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cboBulletId As ComboBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents cmbCartridges As ComboBox
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents cboCaliberName As ComboBox
+    Friend WithEvents cboPowder As ComboBox
+    Friend WithEvents txtPowderWeight As TextBox
+    Friend WithEvents txtOal As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox1 As GroupBox

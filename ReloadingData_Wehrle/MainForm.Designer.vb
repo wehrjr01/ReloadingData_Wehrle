@@ -23,11 +23,9 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.cboDiameter = New System.Windows.Forms.ComboBox()
-        Me.btnAddComponent = New System.Windows.Forms.Button()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.cboBulletWeight = New System.Windows.Forms.ComboBox()
-        Me.btnAddLoad = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnView = New System.Windows.Forms.Button()
@@ -35,21 +33,26 @@ Partial Class MainForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.radHandgun = New System.Windows.Forms.RadioButton()
         Me.radRifle = New System.Windows.Forms.RadioButton()
         Me.btnViewChrono = New System.Windows.Forms.Button()
         Me.cboLoadId = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuItmFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddComponentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuItmAddComponents = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuItmAddLoad = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuItmExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnExit = New System.Windows.Forms.Button()
         Me.btnDeleteLoad = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'cboDiameter
@@ -59,15 +62,6 @@ Partial Class MainForm
         Me.cboDiameter.Name = "cboDiameter"
         Me.cboDiameter.Size = New System.Drawing.Size(121, 21)
         Me.cboDiameter.TabIndex = 0
-        '
-        'btnAddComponent
-        '
-        Me.btnAddComponent.Location = New System.Drawing.Point(33, 269)
-        Me.btnAddComponent.Name = "btnAddComponent"
-        Me.btnAddComponent.Size = New System.Drawing.Size(100, 23)
-        Me.btnAddComponent.TabIndex = 1
-        Me.btnAddComponent.Text = "Add Components"
-        Me.btnAddComponent.UseVisualStyleBackColor = True
         '
         'StatusStrip1
         '
@@ -92,15 +86,6 @@ Partial Class MainForm
         Me.cboBulletWeight.Size = New System.Drawing.Size(121, 21)
         Me.cboBulletWeight.TabIndex = 3
         '
-        'btnAddLoad
-        '
-        Me.btnAddLoad.Location = New System.Drawing.Point(33, 298)
-        Me.btnAddLoad.Name = "btnAddLoad"
-        Me.btnAddLoad.Size = New System.Drawing.Size(100, 23)
-        Me.btnAddLoad.TabIndex = 4
-        Me.btnAddLoad.Text = "Add Load"
-        Me.btnAddLoad.UseVisualStyleBackColor = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -121,7 +106,7 @@ Partial Class MainForm
         '
         'btnView
         '
-        Me.btnView.Location = New System.Drawing.Point(33, 240)
+        Me.btnView.Location = New System.Drawing.Point(26, 288)
         Me.btnView.Name = "btnView"
         Me.btnView.Size = New System.Drawing.Size(100, 23)
         Me.btnView.TabIndex = 7
@@ -161,18 +146,11 @@ Partial Class MainForm
         Me.Label5.Size = New System.Drawing.Size(0, 13)
         Me.Label5.TabIndex = 13
         '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(219, 54)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(441, 225)
-        Me.ListBox1.TabIndex = 15
-        '
         'radHandgun
         '
         Me.radHandgun.AutoSize = True
-        Me.radHandgun.Location = New System.Drawing.Point(25, 54)
+        Me.radHandgun.Checked = True
+        Me.radHandgun.Location = New System.Drawing.Point(17, 19)
         Me.radHandgun.Name = "radHandgun"
         Me.radHandgun.Size = New System.Drawing.Size(101, 17)
         Me.radHandgun.TabIndex = 16
@@ -183,7 +161,7 @@ Partial Class MainForm
         'radRifle
         '
         Me.radRifle.AutoSize = True
-        Me.radRifle.Location = New System.Drawing.Point(25, 78)
+        Me.radRifle.Location = New System.Drawing.Point(17, 42)
         Me.radRifle.Name = "radRifle"
         Me.radRifle.Size = New System.Drawing.Size(78, 17)
         Me.radRifle.TabIndex = 17
@@ -219,31 +197,44 @@ Partial Class MainForm
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.AboutToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuItmFile, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(682, 24)
         Me.MenuStrip1.TabIndex = 51
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'ToolStripMenuItem1
+        'mnuItmFile
         '
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ExitToolStripMenuItem})
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(50, 20)
-        Me.ToolStripMenuItem1.Text = "Menu"
+        Me.mnuItmFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddComponentsToolStripMenuItem, Me.mnuItmExit})
+        Me.mnuItmFile.Name = "mnuItmFile"
+        Me.mnuItmFile.Size = New System.Drawing.Size(37, 20)
+        Me.mnuItmFile.Text = "File"
         '
-        'SaveToolStripMenuItem
+        'AddComponentsToolStripMenuItem
         '
-        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
-        Me.SaveToolStripMenuItem.Text = "Save"
+        Me.AddComponentsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuItmAddComponents, Me.mnuItmAddLoad})
+        Me.AddComponentsToolStripMenuItem.Name = "AddComponentsToolStripMenuItem"
+        Me.AddComponentsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AddComponentsToolStripMenuItem.Text = "Add"
         '
-        'ExitToolStripMenuItem
+        'mnuItmAddComponents
         '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit"
+        Me.mnuItmAddComponents.Name = "mnuItmAddComponents"
+        Me.mnuItmAddComponents.Size = New System.Drawing.Size(152, 22)
+        Me.mnuItmAddComponents.Text = "Components"
+        '
+        'mnuItmAddLoad
+        '
+        Me.mnuItmAddLoad.Name = "mnuItmAddLoad"
+        Me.mnuItmAddLoad.Size = New System.Drawing.Size(152, 22)
+        Me.mnuItmAddLoad.Text = "Load"
+        '
+        'mnuItmExit
+        '
+        Me.mnuItmExit.Name = "mnuItmExit"
+        Me.mnuItmExit.Size = New System.Drawing.Size(152, 22)
+        Me.mnuItmExit.Text = "Exit"
         '
         'AboutToolStripMenuItem
         '
@@ -269,20 +260,38 @@ Partial Class MainForm
         Me.btnDeleteLoad.Text = "Delete Selected Load"
         Me.btnDeleteLoad.UseVisualStyleBackColor = True
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(219, 28)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(441, 254)
+        Me.DataGridView1.TabIndex = 54
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.radHandgun)
+        Me.GroupBox1.Controls.Add(Me.radRifle)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 28)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(122, 68)
+        Me.GroupBox1.TabIndex = 55
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Load Type"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(682, 382)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnDeleteLoad)
         Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.cboLoadId)
         Me.Controls.Add(Me.btnViewChrono)
-        Me.Controls.Add(Me.radRifle)
-        Me.Controls.Add(Me.radHandgun)
-        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -290,10 +299,8 @@ Partial Class MainForm
         Me.Controls.Add(Me.btnView)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnAddLoad)
         Me.Controls.Add(Me.cboBulletWeight)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.btnAddComponent)
         Me.Controls.Add(Me.cboDiameter)
         Me.Name = "MainForm"
         Me.Text = "Reloading Database"
@@ -301,17 +308,18 @@ Partial Class MainForm
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents cboDiameter As ComboBox
-    Friend WithEvents btnAddComponent As Button
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents cboBulletWeight As ComboBox
-    Friend WithEvents btnAddLoad As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents btnView As Button
@@ -319,17 +327,20 @@ Partial Class MainForm
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents ListBox1 As ListBox
     Friend WithEvents radHandgun As RadioButton
     Friend WithEvents radRifle As RadioButton
     Friend WithEvents btnViewChrono As Button
     Friend WithEvents cboLoadId As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuItmFile As ToolStripMenuItem
+    Friend WithEvents mnuItmExit As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtnExit As Button
     Friend WithEvents btnDeleteLoad As Button
+    Friend WithEvents AddComponentsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuItmAddComponents As ToolStripMenuItem
+    Friend WithEvents mnuItmAddLoad As ToolStripMenuItem
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents GroupBox1 As GroupBox
 End Class
