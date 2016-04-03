@@ -105,6 +105,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CartridgeDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CartridgeDataSet.vb">
+      <DependentUpon>CartridgeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ChronoData.Designer.vb">
       <DependentUpon>ChronoData.vb</DependentUpon>
     </Compile>
@@ -118,7 +121,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Handgun.vb" />
+    <Compile Include="Loads.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -134,7 +137,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Rifle.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddComponents.resx">
