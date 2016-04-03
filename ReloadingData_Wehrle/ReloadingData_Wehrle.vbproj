@@ -87,10 +87,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add Components.Designer.vb">
-      <DependentUpon>Add Components.vb</DependentUpon>
+    <Compile Include="AddComponents.Designer.vb">
+      <DependentUpon>AddComponents.vb</DependentUpon>
     </Compile>
-    <Compile Include="Add Components.vb">
+    <Compile Include="AddComponents.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddLoad.Designer.vb">
@@ -100,6 +100,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cartridge.vb" />
+    <Compile Include="CartridgeDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartridgeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ChronoData.Designer.vb">
       <DependentUpon>ChronoData.vb</DependentUpon>
     </Compile>
@@ -132,8 +137,8 @@
     <Compile Include="Rifle.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Add Components.resx">
-      <DependentUpon>Add Components.vb</DependentUpon>
+    <EmbeddedResource Include="AddComponents.resx">
+      <DependentUpon>AddComponents.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddLoad.resx">
       <DependentUpon>AddLoad.vb</DependentUpon>
@@ -152,6 +157,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="CartridgeDataSet.xsc">
+      <DependentUpon>CartridgeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CartridgeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CartridgeDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CartridgeDataSet.xss">
+      <DependentUpon>CartridgeDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

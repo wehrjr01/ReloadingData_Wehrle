@@ -23,7 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.cmbCartridges = New System.Windows.Forms.ComboBox()
-        Me.btnAddCartridge = New System.Windows.Forms.Button()
+        Me.btnAddComponent = New System.Windows.Forms.Button()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -60,14 +60,14 @@ Partial Class Form1
         Me.cmbCartridges.Size = New System.Drawing.Size(121, 21)
         Me.cmbCartridges.TabIndex = 0
         '
-        'btnAddCartridge
+        'btnAddComponent
         '
-        Me.btnAddCartridge.Location = New System.Drawing.Point(33, 269)
-        Me.btnAddCartridge.Name = "btnAddCartridge"
-        Me.btnAddCartridge.Size = New System.Drawing.Size(100, 23)
-        Me.btnAddCartridge.TabIndex = 1
-        Me.btnAddCartridge.Text = "Add Components"
-        Me.btnAddCartridge.UseVisualStyleBackColor = True
+        Me.btnAddComponent.Location = New System.Drawing.Point(33, 269)
+        Me.btnAddComponent.Name = "btnAddComponent"
+        Me.btnAddComponent.Size = New System.Drawing.Size(100, 23)
+        Me.btnAddComponent.TabIndex = 1
+        Me.btnAddComponent.Text = "Add Components"
+        Me.btnAddComponent.UseVisualStyleBackColor = True
         '
         'StatusStrip1
         '
@@ -242,7 +242,7 @@ Partial Class Form1
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'AboutToolStripMenuItem
@@ -293,7 +293,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.btnAddCartridge)
+        Me.Controls.Add(Me.btnAddComponent)
         Me.Controls.Add(Me.cmbCartridges)
         Me.Name = "Form1"
         Me.Text = "Reloading Database"
@@ -307,7 +307,7 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents cmbCartridges As ComboBox
-    Friend WithEvents btnAddCartridge As Button
+    Friend WithEvents btnAddComponent As Button
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents ComboBox1 As ComboBox
