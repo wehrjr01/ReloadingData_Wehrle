@@ -1,6 +1,6 @@
 ﻿Option Strict On
 Option Explicit On
-
+'Testing the pull problem
 Public Class Loads
     Private adapter As New CartridgeDataSetTableAdapters.LoadsTableAdapter
     Public Shared Property LastError As String
