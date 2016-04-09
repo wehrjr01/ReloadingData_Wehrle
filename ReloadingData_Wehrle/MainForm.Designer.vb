@@ -22,6 +22,7 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.cboDiameter = New System.Windows.Forms.ComboBox()
         Me.cboBulletWeight = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -34,7 +35,6 @@ Partial Class MainForm
         Me.radHandgun = New System.Windows.Forms.RadioButton()
         Me.radRifle = New System.Windows.Forms.RadioButton()
         Me.btnViewChrono = New System.Windows.Forms.Button()
-        Me.cboLoadId = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.mnuItmFile = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,10 +45,24 @@ Partial Class MainForm
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnExit = New System.Windows.Forms.Button()
         Me.btnDeleteLoad = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvLoadList = New System.Windows.Forms.DataGridView()
+        Me.LoadIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CartNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BulletIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrimerDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PowderNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PowderWeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ChronoIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LoadsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
+        Me.txtLoadId = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LoadsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -160,14 +174,6 @@ Partial Class MainForm
         Me.btnViewChrono.Text = "View Chrono Data"
         Me.btnViewChrono.UseVisualStyleBackColor = True
         '
-        'cboLoadId
-        '
-        Me.cboLoadId.FormattingEnabled = True
-        Me.cboLoadId.Location = New System.Drawing.Point(12, 108)
-        Me.cboLoadId.Name = "cboLoadId"
-        Me.cboLoadId.Size = New System.Drawing.Size(121, 21)
-        Me.cboLoadId.TabIndex = 19
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -197,7 +203,7 @@ Partial Class MainForm
         '
         Me.AddComponentsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuItmAddComponents, Me.mnuItmAddLoad})
         Me.AddComponentsToolStripMenuItem.Name = "AddComponentsToolStripMenuItem"
-        Me.AddComponentsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AddComponentsToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
         Me.AddComponentsToolStripMenuItem.Text = "Add"
         '
         'mnuItmAddComponents
@@ -215,7 +221,7 @@ Partial Class MainForm
         'mnuItmExit
         '
         Me.mnuItmExit.Name = "mnuItmExit"
-        Me.mnuItmExit.Size = New System.Drawing.Size(152, 22)
+        Me.mnuItmExit.Size = New System.Drawing.Size(96, 22)
         Me.mnuItmExit.Text = "Exit"
         '
         'AboutToolStripMenuItem
@@ -242,13 +248,85 @@ Partial Class MainForm
         Me.btnDeleteLoad.Text = "Delete Selected Load"
         Me.btnDeleteLoad.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'dgvLoadList
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(219, 28)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(441, 254)
-        Me.DataGridView1.TabIndex = 54
+        Me.dgvLoadList.AllowUserToAddRows = False
+        Me.dgvLoadList.AllowUserToDeleteRows = False
+        Me.dgvLoadList.AutoGenerateColumns = False
+        Me.dgvLoadList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvLoadList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LoadIdDataGridViewTextBoxColumn, Me.CartNameDataGridViewTextBoxColumn, Me.BulletIdDataGridViewTextBoxColumn, Me.PrimerDataGridViewTextBoxColumn, Me.PowderNameDataGridViewTextBoxColumn, Me.PowderWeightDataGridViewTextBoxColumn, Me.OALDataGridViewTextBoxColumn, Me.ChronoIDDataGridViewTextBoxColumn})
+        Me.dgvLoadList.DataSource = Me.LoadsBindingSource
+        Me.dgvLoadList.Location = New System.Drawing.Point(219, 28)
+        Me.dgvLoadList.Name = "dgvLoadList"
+        Me.dgvLoadList.ReadOnly = True
+        Me.dgvLoadList.Size = New System.Drawing.Size(441, 254)
+        Me.dgvLoadList.TabIndex = 54
+        '
+        'LoadIdDataGridViewTextBoxColumn
+        '
+        Me.LoadIdDataGridViewTextBoxColumn.DataPropertyName = "LoadId"
+        Me.LoadIdDataGridViewTextBoxColumn.HeaderText = "LoadId"
+        Me.LoadIdDataGridViewTextBoxColumn.Name = "LoadIdDataGridViewTextBoxColumn"
+        Me.LoadIdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CartNameDataGridViewTextBoxColumn
+        '
+        Me.CartNameDataGridViewTextBoxColumn.DataPropertyName = "CartName"
+        Me.CartNameDataGridViewTextBoxColumn.HeaderText = "CartName"
+        Me.CartNameDataGridViewTextBoxColumn.Name = "CartNameDataGridViewTextBoxColumn"
+        Me.CartNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'BulletIdDataGridViewTextBoxColumn
+        '
+        Me.BulletIdDataGridViewTextBoxColumn.DataPropertyName = "BulletId"
+        Me.BulletIdDataGridViewTextBoxColumn.HeaderText = "BulletId"
+        Me.BulletIdDataGridViewTextBoxColumn.Name = "BulletIdDataGridViewTextBoxColumn"
+        Me.BulletIdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PrimerDataGridViewTextBoxColumn
+        '
+        Me.PrimerDataGridViewTextBoxColumn.DataPropertyName = "Primer"
+        Me.PrimerDataGridViewTextBoxColumn.HeaderText = "Primer"
+        Me.PrimerDataGridViewTextBoxColumn.Name = "PrimerDataGridViewTextBoxColumn"
+        Me.PrimerDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PowderNameDataGridViewTextBoxColumn
+        '
+        Me.PowderNameDataGridViewTextBoxColumn.DataPropertyName = "PowderName"
+        Me.PowderNameDataGridViewTextBoxColumn.HeaderText = "PowderName"
+        Me.PowderNameDataGridViewTextBoxColumn.Name = "PowderNameDataGridViewTextBoxColumn"
+        Me.PowderNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PowderWeightDataGridViewTextBoxColumn
+        '
+        Me.PowderWeightDataGridViewTextBoxColumn.DataPropertyName = "Powder Weight"
+        Me.PowderWeightDataGridViewTextBoxColumn.HeaderText = "Powder Weight"
+        Me.PowderWeightDataGridViewTextBoxColumn.Name = "PowderWeightDataGridViewTextBoxColumn"
+        Me.PowderWeightDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'OALDataGridViewTextBoxColumn
+        '
+        Me.OALDataGridViewTextBoxColumn.DataPropertyName = "OAL"
+        Me.OALDataGridViewTextBoxColumn.HeaderText = "OAL"
+        Me.OALDataGridViewTextBoxColumn.Name = "OALDataGridViewTextBoxColumn"
+        Me.OALDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ChronoIDDataGridViewTextBoxColumn
+        '
+        Me.ChronoIDDataGridViewTextBoxColumn.DataPropertyName = "ChronoID"
+        Me.ChronoIDDataGridViewTextBoxColumn.HeaderText = "ChronoID"
+        Me.ChronoIDDataGridViewTextBoxColumn.Name = "ChronoIDDataGridViewTextBoxColumn"
+        Me.ChronoIDDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'LoadsBindingSource
+        '
+        Me.LoadsBindingSource.DataMember = "Loads"
+        Me.LoadsBindingSource.DataSource = Me.CartridgeDataSet
+        '
+        'CartridgeDataSet
+        '
+        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
+        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox1
         '
@@ -261,18 +339,29 @@ Partial Class MainForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Load Type"
         '
+        'LoadsTableAdapter
+        '
+        Me.LoadsTableAdapter.ClearBeforeFill = True
+        '
+        'txtLoadId
+        '
+        Me.txtLoadId.Location = New System.Drawing.Point(13, 102)
+        Me.txtLoadId.Name = "txtLoadId"
+        Me.txtLoadId.Size = New System.Drawing.Size(120, 20)
+        Me.txtLoadId.TabIndex = 56
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(682, 382)
+        Me.Controls.Add(Me.txtLoadId)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvLoadList)
         Me.Controls.Add(Me.btnDeleteLoad)
         Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.cboLoadId)
         Me.Controls.Add(Me.btnViewChrono)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -287,7 +376,9 @@ Partial Class MainForm
         Me.Text = "Reloading Database"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LoadsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -307,7 +398,6 @@ Partial Class MainForm
     Friend WithEvents radHandgun As RadioButton
     Friend WithEvents radRifle As RadioButton
     Friend WithEvents btnViewChrono As Button
-    Friend WithEvents cboLoadId As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents mnuItmFile As ToolStripMenuItem
@@ -318,6 +408,18 @@ Partial Class MainForm
     Friend WithEvents AddComponentsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents mnuItmAddComponents As ToolStripMenuItem
     Friend WithEvents mnuItmAddLoad As ToolStripMenuItem
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvLoadList As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents CartridgeDataSet As CartridgeDataSet
+    Friend WithEvents LoadsBindingSource As BindingSource
+    Friend WithEvents LoadsTableAdapter As CartridgeDataSetTableAdapters.LoadsTableAdapter
+    Friend WithEvents LoadIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CartNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BulletIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PrimerDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PowderNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PowderWeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents OALDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ChronoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents txtLoadId As TextBox
 End Class
