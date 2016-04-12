@@ -34,8 +34,9 @@ Public Class AddLoad
 
         If cboBulletId.SelectedIndex = -1 Then Exit Sub
         'Get the Member_Id value associated with the selected member
-        Dim bullet_Id As Short = CShort(cboBulletId.SelectedValue)
+        Dim bullet_Id As String = cboBulletId.SelectedValue.ToString
         Dim fullName As String
+
         txtBulletInfo.Text = "test"
     End Sub
 

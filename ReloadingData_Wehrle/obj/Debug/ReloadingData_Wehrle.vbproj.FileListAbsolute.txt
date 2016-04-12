@@ -24,7 +24,6 @@
 \\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\bin\Debug\ReloadingData_Wehrle.exe
 \\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\bin\Debug\ReloadingData_Wehrle.pdb
 \\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\bin\Debug\ReloadingData_Wehrle.xml
-\\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.vbprojResolveAssemblyReference.cache
 \\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.AddComponents.resources
 \\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.AddLoad.resources
 \\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.ChronoData.resources

@@ -46,6 +46,11 @@ Partial Class MainForm
         Me.BtnExit = New System.Windows.Forms.Button()
         Me.btnDeleteLoad = New System.Windows.Forms.Button()
         Me.dgvLoadList = New System.Windows.Forms.DataGridView()
+        Me.LoadsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
+        Me.txtLoadId = New System.Windows.Forms.TextBox()
         Me.LoadIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CartNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BulletIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,11 +58,7 @@ Partial Class MainForm
         Me.PowderNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PowderWeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LoadsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
-        Me.txtLoadId = New System.Windows.Forms.TextBox()
+        Me.Notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -253,14 +254,46 @@ Partial Class MainForm
         Me.dgvLoadList.AllowUserToDeleteRows = False
         Me.dgvLoadList.AutoGenerateColumns = False
         Me.dgvLoadList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvLoadList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LoadIdDataGridViewTextBoxColumn, Me.CartNameDataGridViewTextBoxColumn, Me.BulletIdDataGridViewTextBoxColumn, Me.PrimerDataGridViewTextBoxColumn, Me.PowderNameDataGridViewTextBoxColumn, Me.PowderWeightDataGridViewTextBoxColumn, Me.OALDataGridViewTextBoxColumn})
+        Me.dgvLoadList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LoadIdDataGridViewTextBoxColumn, Me.CartNameDataGridViewTextBoxColumn, Me.BulletIdDataGridViewTextBoxColumn, Me.PrimerDataGridViewTextBoxColumn, Me.PowderNameDataGridViewTextBoxColumn, Me.PowderWeightDataGridViewTextBoxColumn, Me.OALDataGridViewTextBoxColumn, Me.Notes})
         Me.dgvLoadList.DataSource = Me.LoadsBindingSource
         Me.dgvLoadList.Location = New System.Drawing.Point(219, 28)
         Me.dgvLoadList.Name = "dgvLoadList"
         Me.dgvLoadList.ReadOnly = True
         Me.dgvLoadList.RowHeadersVisible = False
-        Me.dgvLoadList.Size = New System.Drawing.Size(743, 254)
+        Me.dgvLoadList.Size = New System.Drawing.Size(800, 254)
         Me.dgvLoadList.TabIndex = 54
+        '
+        'LoadsBindingSource
+        '
+        Me.LoadsBindingSource.DataMember = "Loads"
+        Me.LoadsBindingSource.DataSource = Me.CartridgeDataSet
+        '
+        'CartridgeDataSet
+        '
+        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
+        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.radHandgun)
+        Me.GroupBox1.Controls.Add(Me.radRifle)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 28)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(122, 68)
+        Me.GroupBox1.TabIndex = 55
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Load Type"
+        '
+        'LoadsTableAdapter
+        '
+        Me.LoadsTableAdapter.ClearBeforeFill = True
+        '
+        'txtLoadId
+        '
+        Me.txtLoadId.Location = New System.Drawing.Point(13, 102)
+        Me.txtLoadId.Name = "txtLoadId"
+        Me.txtLoadId.Size = New System.Drawing.Size(120, 20)
+        Me.txtLoadId.TabIndex = 56
         '
         'LoadIdDataGridViewTextBoxColumn
         '
@@ -311,37 +344,12 @@ Partial Class MainForm
         Me.OALDataGridViewTextBoxColumn.Name = "OALDataGridViewTextBoxColumn"
         Me.OALDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'LoadsBindingSource
+        'Notes
         '
-        Me.LoadsBindingSource.DataMember = "Loads"
-        Me.LoadsBindingSource.DataSource = Me.CartridgeDataSet
-        '
-        'CartridgeDataSet
-        '
-        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
-        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.radHandgun)
-        Me.GroupBox1.Controls.Add(Me.radRifle)
-        Me.GroupBox1.Location = New System.Drawing.Point(11, 28)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(122, 68)
-        Me.GroupBox1.TabIndex = 55
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Load Type"
-        '
-        'LoadsTableAdapter
-        '
-        Me.LoadsTableAdapter.ClearBeforeFill = True
-        '
-        'txtLoadId
-        '
-        Me.txtLoadId.Location = New System.Drawing.Point(13, 102)
-        Me.txtLoadId.Name = "txtLoadId"
-        Me.txtLoadId.Size = New System.Drawing.Size(120, 20)
-        Me.txtLoadId.TabIndex = 56
+        Me.Notes.DataPropertyName = "Notes"
+        Me.Notes.HeaderText = "Notes"
+        Me.Notes.Name = "Notes"
+        Me.Notes.ReadOnly = True
         '
         'MainForm
         '
@@ -406,6 +414,8 @@ Partial Class MainForm
     Friend WithEvents CartridgeDataSet As CartridgeDataSet
     Friend WithEvents LoadsBindingSource As BindingSource
     Friend WithEvents LoadsTableAdapter As CartridgeDataSetTableAdapters.LoadsTableAdapter
+    Friend WithEvents ChronoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents txtLoadId As TextBox
     Friend WithEvents LoadIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CartNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BulletIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -413,6 +423,5 @@ Partial Class MainForm
     Friend WithEvents PowderNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PowderWeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents OALDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ChronoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents txtLoadId As TextBox
+    Friend WithEvents Notes As DataGridViewTextBoxColumn
 End Class

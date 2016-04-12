@@ -41,6 +41,8 @@ Partial Class AddLoad
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtBulletInfo = New System.Windows.Forms.TextBox()
+        Me.txtNotes = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -212,11 +214,30 @@ Partial Class AddLoad
         Me.txtBulletInfo.Size = New System.Drawing.Size(232, 20)
         Me.txtBulletInfo.TabIndex = 42
         '
+        'txtNotes
+        '
+        Me.txtNotes.Location = New System.Drawing.Point(290, 108)
+        Me.txtNotes.Multiline = True
+        Me.txtNotes.Name = "txtNotes"
+        Me.txtNotes.Size = New System.Drawing.Size(297, 184)
+        Me.txtNotes.TabIndex = 43
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(287, 92)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(38, 13)
+        Me.Label6.TabIndex = 44
+        Me.Label6.Text = "Notes:"
+        '
         'AddLoad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(318, 350)
+        Me.ClientSize = New System.Drawing.Size(599, 387)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.txtNotes)
         Me.Controls.Add(Me.txtBulletInfo)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
@@ -261,4 +282,6 @@ Partial Class AddLoad
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Button1 As Button
     Friend WithEvents txtBulletInfo As TextBox
+    Friend WithEvents txtNotes As TextBox
+    Friend WithEvents Label6 As Label
 End Class
