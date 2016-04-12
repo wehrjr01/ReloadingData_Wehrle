@@ -4,10 +4,14 @@ Public Class AddLoad
     Dim mBullet As New Bullets
     Dim mPowder As New Powders
     Dim mCaliber As New Cartridge
+    Dim mdiameter As Decimal
+    Dim mrifle As Boolean
 
 
 
     Private Sub AddLoad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'CartridgeDataSet.Bullet' table. You can move, or remove it, as needed.
+        Me.BulletTableAdapter.Fill(Me.CartridgeDataSet.Bullet)
         'Fill the caliber combo box.
         cboCaliberName.DataSource = mCaliber.Items
         cboCaliberName.DisplayMember = "Name"
@@ -18,10 +22,15 @@ Public Class AddLoad
         cboPowders.DisplayMember = "Name"
         cboPowders.ValueMember = "Name"
 
-        'Fill the bullet weight combo box
-        cboBulletId.DataSource = mBullet.Items
-        cboBulletId.DisplayMember = "BulletId"
-        cboBulletId.ValueMember = "BulletId"
+        'TODO: This line of code loads data into the 'CartridgeDataSet.Loads' table. You can move, or remove it, as needed.
+        'Dim selectedCaliber As New Cartridge
+        'selectedCaliber = cboCaliberName.SelectedValue
+        mdiameter = 0.3
+        mrifle = True
+
+        Me.BulletTableAdapter.FillByDia_Rifle(Me.CartridgeDataSet.Bullet, mdiameter, mrifle)
+
+
     End Sub
 
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
@@ -29,16 +38,7 @@ Public Class AddLoad
 
     End Sub
 
-    Private Sub cboBulletId_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBulletId.SelectedIndexChanged
 
-
-        If cboBulletId.SelectedIndex = -1 Then Exit Sub
-        'Get the Member_Id value associated with the selected member
-        Dim bullet_Id As String = cboBulletId.SelectedValue.ToString
-        Dim fullName As String
-
-        txtBulletInfo.Text = "test"
-    End Sub
 
 
     'If cboMemberName.SelectedIndex = -1 Then Exit Sub
