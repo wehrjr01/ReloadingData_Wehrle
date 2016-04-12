@@ -36,7 +36,7 @@ Public Class AddLoad
         'Get the Member_Id value associated with the selected member
         Dim bullet_Id As Short = CShort(cboBulletId.SelectedValue)
         Dim fullName As String
-        txtBulletInfo = BulletTableAdapter.
+        txtBulletInfo.Text = "test"
     End Sub
 
 
