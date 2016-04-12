@@ -11,10 +11,10 @@ Public Class Loads
                            ByVal powderName As String,
                            ByVal powderWeight As Decimal,
                            ByVal oAL As Decimal,
-                           ByVal chronoId As Integer) As Boolean
+                           ByVal notes As String) As Boolean
         Try
             LastError = String.Empty
-            adapter.Insert(cartName, bulletId, primer, powderName, powderWeight, oAL, chronoId)
+            adapter.Insert(cartName, bulletId, primer, powderName, powderWeight, oAL, notes)
             Return True
 
         Catch ex As Exception
