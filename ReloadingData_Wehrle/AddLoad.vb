@@ -38,6 +38,24 @@ Public Class AddLoad
 
     End Sub
 
+    Private Sub cboCaliberName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboCaliberName.SelectedIndexChanged
+        Try
+
+            Dim selectedCaliber As String
+            selectedCaliber = cboCaliberName.Text
+            Dim table As New CartridgeDataSet.CartridgeDataTable
+            Dim adapter As New CartridgeDataSetTableAdapters.CartridgeTableAdapter
+            table = adapter.GetDataByName(selectedCaliber)
+            Dim row As CartridgeDataSet.CartridgeRow = table.FindByName(selectedCaliber)
+            mdiameter = row.Caliber
+            mrifle = row.Rifle
+            Me.BulletTableAdapter.FillByDia_Rifle(Me.CartridgeDataSet.Bullet, mdiameter, mrifle)
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
 
 
 
