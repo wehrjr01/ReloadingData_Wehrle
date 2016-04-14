@@ -24,12 +24,10 @@ Partial Class AddLoad
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.btnReturn = New System.Windows.Forms.Button()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnAddLoad = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cboCaliberName = New System.Windows.Forms.ComboBox()
         Me.cboPowders = New System.Windows.Forms.ComboBox()
@@ -37,56 +35,38 @@ Partial Class AddLoad
         Me.txtOal = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtNotes = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dgvBullets = New System.Windows.Forms.DataGridView()
-        Me.BrandDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DiameterDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BulletId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.WeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RifleDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.BulletBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
         Me.BulletTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.BulletTableAdapter()
-        Me.GroupBox1.SuspendLayout()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BulletId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BrandDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DiameterDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.WeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RifleDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.txtPrimer = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.dgvBullets, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BulletBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnReturn
         '
-        Me.btnReturn.Location = New System.Drawing.Point(435, 352)
+        Me.btnReturn.Location = New System.Drawing.Point(437, 319)
         Me.btnReturn.Name = "btnReturn"
         Me.btnReturn.Size = New System.Drawing.Size(115, 23)
         Me.btnReturn.TabIndex = 33
         Me.btnReturn.Text = "Return To Home"
         Me.btnReturn.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(6, 42)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(73, 17)
-        Me.RadioButton2.TabIndex = 32
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Rifle Load"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(6, 19)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(96, 17)
-        Me.RadioButton1.TabIndex = 31
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Handgun Load"
-        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -107,25 +87,25 @@ Partial Class AddLoad
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(143, 319)
+        Me.Label3.Location = New System.Drawing.Point(143, 74)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(74, 13)
         Me.Label3.TabIndex = 27
         Me.Label3.Text = "Powder Name"
         '
-        'Button2
+        'btnAddLoad
         '
-        Me.Button2.Location = New System.Drawing.Point(313, 352)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 23)
-        Me.Button2.TabIndex = 25
-        Me.Button2.Text = "Add Load"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnAddLoad.Location = New System.Drawing.Point(12, 319)
+        Me.btnAddLoad.Name = "btnAddLoad"
+        Me.btnAddLoad.Size = New System.Drawing.Size(100, 23)
+        Me.btnAddLoad.TabIndex = 25
+        Me.btnAddLoad.Text = "Add Load"
+        Me.btnAddLoad.UseVisualStyleBackColor = True
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(143, 103)
+        Me.Label1.Location = New System.Drawing.Point(143, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 23
@@ -134,7 +114,7 @@ Partial Class AddLoad
         'cboCaliberName
         '
         Me.cboCaliberName.FormattingEnabled = True
-        Me.cboCaliberName.Location = New System.Drawing.Point(16, 100)
+        Me.cboCaliberName.Location = New System.Drawing.Point(16, 31)
         Me.cboCaliberName.Name = "cboCaliberName"
         Me.cboCaliberName.Size = New System.Drawing.Size(121, 21)
         Me.cboCaliberName.Sorted = True
@@ -143,21 +123,21 @@ Partial Class AddLoad
         'cboPowders
         '
         Me.cboPowders.FormattingEnabled = True
-        Me.cboPowders.Location = New System.Drawing.Point(11, 316)
+        Me.cboPowders.Location = New System.Drawing.Point(16, 71)
         Me.cboPowders.Name = "cboPowders"
         Me.cboPowders.Size = New System.Drawing.Size(121, 21)
         Me.cboPowders.TabIndex = 34
         '
         'txtPowderWeight
         '
-        Me.txtPowderWeight.Location = New System.Drawing.Point(11, 352)
+        Me.txtPowderWeight.Location = New System.Drawing.Point(16, 109)
         Me.txtPowderWeight.Name = "txtPowderWeight"
         Me.txtPowderWeight.Size = New System.Drawing.Size(121, 20)
         Me.txtPowderWeight.TabIndex = 36
         '
         'txtOal
         '
-        Me.txtOal.Location = New System.Drawing.Point(292, 319)
+        Me.txtOal.Location = New System.Drawing.Point(242, 109)
         Me.txtOal.Name = "txtOal"
         Me.txtOal.Size = New System.Drawing.Size(121, 20)
         Me.txtOal.TabIndex = 37
@@ -165,7 +145,7 @@ Partial Class AddLoad
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(143, 355)
+        Me.Label7.Location = New System.Drawing.Point(143, 112)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 13)
         Me.Label7.TabIndex = 38
@@ -174,44 +154,24 @@ Partial Class AddLoad
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(432, 324)
+        Me.Label8.Location = New System.Drawing.Point(369, 112)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(40, 13)
         Me.Label8.TabIndex = 39
         Me.Label8.Text = "Length"
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
-        Me.GroupBox1.Location = New System.Drawing.Point(16, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(116, 65)
-        Me.GroupBox1.TabIndex = 40
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Cartridge Type"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(185, 43)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 41
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'txtNotes
         '
-        Me.txtNotes.Location = New System.Drawing.Point(266, 10)
+        Me.txtNotes.Location = New System.Drawing.Point(242, 10)
         Me.txtNotes.Multiline = True
         Me.txtNotes.Name = "txtNotes"
-        Me.txtNotes.Size = New System.Drawing.Size(297, 102)
+        Me.txtNotes.Size = New System.Drawing.Size(321, 77)
         Me.txtNotes.TabIndex = 43
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(222, 12)
+        Me.Label6.Location = New System.Drawing.Point(198, 10)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(38, 13)
         Me.Label6.TabIndex = 44
@@ -223,14 +183,38 @@ Partial Class AddLoad
         Me.dgvBullets.AllowUserToDeleteRows = False
         Me.dgvBullets.AutoGenerateColumns = False
         Me.dgvBullets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBullets.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BrandDataGridViewTextBoxColumn, Me.DiameterDataGridViewTextBoxColumn, Me.BulletId, Me.WeightDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn, Me.RifleDataGridViewCheckBoxColumn})
+        Me.dgvBullets.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BulletId, Me.BrandDataGridViewTextBoxColumn, Me.DiameterDataGridViewTextBoxColumn, Me.WeightDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn, Me.RifleDataGridViewCheckBoxColumn})
         Me.dgvBullets.DataSource = Me.BulletBindingSource
         Me.dgvBullets.Location = New System.Drawing.Point(16, 155)
         Me.dgvBullets.Name = "dgvBullets"
         Me.dgvBullets.ReadOnly = True
-        Me.dgvBullets.RowHeadersVisible = False
-        Me.dgvBullets.Size = New System.Drawing.Size(571, 131)
+        Me.dgvBullets.Size = New System.Drawing.Size(639, 131)
         Me.dgvBullets.TabIndex = 45
+        '
+        'BulletBindingSource
+        '
+        Me.BulletBindingSource.DataMember = "Bullet"
+        Me.BulletBindingSource.DataSource = Me.CartridgeDataSet
+        '
+        'CartridgeDataSet
+        '
+        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
+        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BulletTableAdapter
+        '
+        Me.BulletTableAdapter.ClearBeforeFill = True
+        '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
+        'BulletId
+        '
+        Me.BulletId.DataPropertyName = "BulletId"
+        Me.BulletId.HeaderText = "BulletId"
+        Me.BulletId.Name = "BulletId"
+        Me.BulletId.ReadOnly = True
         '
         'BrandDataGridViewTextBoxColumn
         '
@@ -245,13 +229,6 @@ Partial Class AddLoad
         Me.DiameterDataGridViewTextBoxColumn.HeaderText = "Diameter"
         Me.DiameterDataGridViewTextBoxColumn.Name = "DiameterDataGridViewTextBoxColumn"
         Me.DiameterDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'BulletId
-        '
-        Me.BulletId.DataPropertyName = "BulletId"
-        Me.BulletId.HeaderText = "BulletId"
-        Me.BulletId.Name = "BulletId"
-        Me.BulletId.ReadOnly = True
         '
         'WeightDataGridViewTextBoxColumn
         '
@@ -274,30 +251,47 @@ Partial Class AddLoad
         Me.RifleDataGridViewCheckBoxColumn.Name = "RifleDataGridViewCheckBoxColumn"
         Me.RifleDataGridViewCheckBoxColumn.ReadOnly = True
         '
-        'BulletBindingSource
+        'txtPrimer
         '
-        Me.BulletBindingSource.DataMember = "Bullet"
-        Me.BulletBindingSource.DataSource = Me.CartridgeDataSet
+        Me.txtPrimer.Location = New System.Drawing.Point(431, 109)
+        Me.txtPrimer.Name = "txtPrimer"
+        Me.txtPrimer.Size = New System.Drawing.Size(121, 20)
+        Me.txtPrimer.TabIndex = 46
         '
-        'CartridgeDataSet
+        'Label2
         '
-        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
-        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(570, 112)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(36, 13)
+        Me.Label2.TabIndex = 47
+        Me.Label2.Text = "Primer"
         '
-        'BulletTableAdapter
+        'StatusStrip1
         '
-        Me.BulletTableAdapter.ClearBeforeFill = True
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 343)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(677, 22)
+        Me.StatusStrip1.TabIndex = 48
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'lblStatus
+        '
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(0, 17)
         '
         'AddLoad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(599, 387)
+        Me.ClientSize = New System.Drawing.Size(677, 365)
+        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtPrimer)
         Me.Controls.Add(Me.dgvBullets)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtNotes)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtOal)
@@ -307,27 +301,26 @@ Partial Class AddLoad
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnAddLoad)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cboCaliberName)
         Me.Name = "AddLoad"
         Me.Text = "AddLoad"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.dgvBullets, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BulletBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnReturn As Button
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnAddLoad As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents cboCaliberName As ComboBox
     Friend WithEvents cboPowders As ComboBox
@@ -335,18 +328,21 @@ Partial Class AddLoad
     Friend WithEvents txtOal As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents txtNotes As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents dgvBullets As DataGridView
     Friend WithEvents CartridgeDataSet As CartridgeDataSet
     Friend WithEvents BulletBindingSource As BindingSource
     Friend WithEvents BulletTableAdapter As CartridgeDataSetTableAdapters.BulletTableAdapter
+    Friend WithEvents errProvider As ErrorProvider
+    Friend WithEvents BulletId As DataGridViewTextBoxColumn
     Friend WithEvents BrandDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DiameterDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents BulletId As DataGridViewTextBoxColumn
     Friend WithEvents WeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents RifleDataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtPrimer As TextBox
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents lblStatus As ToolStripStatusLabel
 End Class

@@ -25,6 +25,9 @@
         End Get
     End Property
 
-
+    Public Function Delete(ByVal cartName As String) As Boolean
+        Dim rowsAffected As Integer = adapter.Delete(cartName)
+        Return rowsAffected > 0
+    End Function
 
 End Class

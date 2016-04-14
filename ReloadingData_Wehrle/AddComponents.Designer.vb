@@ -55,6 +55,7 @@ Partial Class AddComponents
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnDelete = New System.Windows.Forms.Button()
         CType(Me.dgvComponents, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -306,11 +307,21 @@ Partial Class AddComponents
         Me.Label3.TabIndex = 88
         Me.Label3.Text = "Choose Component Type"
         '
+        'btnDelete
+        '
+        Me.btnDelete.Location = New System.Drawing.Point(26, 336)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelete.TabIndex = 89
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
         'AddComponents
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(896, 395)
+        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.GroupBox1)
@@ -381,4 +392,5 @@ Partial Class AddComponents
     Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents btnDelete As Button
 End Class
