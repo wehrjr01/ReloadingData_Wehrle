@@ -41,16 +41,11 @@ Partial Class MainForm
         Me.AddComponentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuItmAddComponents = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuItmAddLoad = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteLoadsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuItmExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnExit = New System.Windows.Forms.Button()
-        Me.btnDeleteLoad = New System.Windows.Forms.Button()
         Me.dgvLoadList = New System.Windows.Forms.DataGridView()
-        Me.LoadsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
-        Me.txtLoadId = New System.Windows.Forms.TextBox()
         Me.LoadIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CartNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BulletIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,6 +54,11 @@ Partial Class MainForm
         Me.PowderWeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LoadsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
+        Me.txtLoadId = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -194,7 +194,7 @@ Partial Class MainForm
         '
         'mnuItmFile
         '
-        Me.mnuItmFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddComponentsToolStripMenuItem, Me.mnuItmExit})
+        Me.mnuItmFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddComponentsToolStripMenuItem, Me.DeleteLoadsToolStripMenuItem, Me.mnuItmExit})
         Me.mnuItmFile.Name = "mnuItmFile"
         Me.mnuItmFile.Size = New System.Drawing.Size(37, 20)
         Me.mnuItmFile.Text = "File"
@@ -203,7 +203,7 @@ Partial Class MainForm
         '
         Me.AddComponentsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuItmAddComponents, Me.mnuItmAddLoad})
         Me.AddComponentsToolStripMenuItem.Name = "AddComponentsToolStripMenuItem"
-        Me.AddComponentsToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
+        Me.AddComponentsToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.AddComponentsToolStripMenuItem.Text = "Add"
         '
         'mnuItmAddComponents
@@ -218,10 +218,16 @@ Partial Class MainForm
         Me.mnuItmAddLoad.Size = New System.Drawing.Size(143, 22)
         Me.mnuItmAddLoad.Text = "Load"
         '
+        'DeleteLoadsToolStripMenuItem
+        '
+        Me.DeleteLoadsToolStripMenuItem.Name = "DeleteLoadsToolStripMenuItem"
+        Me.DeleteLoadsToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
+        Me.DeleteLoadsToolStripMenuItem.Text = "Delete Loads"
+        '
         'mnuItmExit
         '
         Me.mnuItmExit.Name = "mnuItmExit"
-        Me.mnuItmExit.Size = New System.Drawing.Size(96, 22)
+        Me.mnuItmExit.Size = New System.Drawing.Size(141, 22)
         Me.mnuItmExit.Text = "Exit"
         '
         'AboutToolStripMenuItem
@@ -232,21 +238,12 @@ Partial Class MainForm
         '
         'BtnExit
         '
-        Me.BtnExit.Location = New System.Drawing.Point(559, 288)
+        Me.BtnExit.Location = New System.Drawing.Point(884, 335)
         Me.BtnExit.Name = "BtnExit"
         Me.BtnExit.Size = New System.Drawing.Size(101, 23)
         Me.BtnExit.TabIndex = 52
         Me.BtnExit.Text = "Exit"
         Me.BtnExit.UseVisualStyleBackColor = True
-        '
-        'btnDeleteLoad
-        '
-        Me.btnDeleteLoad.Location = New System.Drawing.Point(370, 288)
-        Me.btnDeleteLoad.Name = "btnDeleteLoad"
-        Me.btnDeleteLoad.Size = New System.Drawing.Size(129, 23)
-        Me.btnDeleteLoad.TabIndex = 53
-        Me.btnDeleteLoad.Text = "Delete Selected Load"
-        Me.btnDeleteLoad.UseVisualStyleBackColor = True
         '
         'dgvLoadList
         '
@@ -259,41 +256,8 @@ Partial Class MainForm
         Me.dgvLoadList.Location = New System.Drawing.Point(219, 28)
         Me.dgvLoadList.Name = "dgvLoadList"
         Me.dgvLoadList.ReadOnly = True
-        Me.dgvLoadList.RowHeadersVisible = False
         Me.dgvLoadList.Size = New System.Drawing.Size(800, 254)
         Me.dgvLoadList.TabIndex = 54
-        '
-        'LoadsBindingSource
-        '
-        Me.LoadsBindingSource.DataMember = "Loads"
-        Me.LoadsBindingSource.DataSource = Me.CartridgeDataSet
-        '
-        'CartridgeDataSet
-        '
-        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
-        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.radHandgun)
-        Me.GroupBox1.Controls.Add(Me.radRifle)
-        Me.GroupBox1.Location = New System.Drawing.Point(11, 28)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(122, 68)
-        Me.GroupBox1.TabIndex = 55
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Load Type"
-        '
-        'LoadsTableAdapter
-        '
-        Me.LoadsTableAdapter.ClearBeforeFill = True
-        '
-        'txtLoadId
-        '
-        Me.txtLoadId.Location = New System.Drawing.Point(13, 102)
-        Me.txtLoadId.Name = "txtLoadId"
-        Me.txtLoadId.Size = New System.Drawing.Size(120, 20)
-        Me.txtLoadId.TabIndex = 56
         '
         'LoadIdDataGridViewTextBoxColumn
         '
@@ -351,6 +315,38 @@ Partial Class MainForm
         Me.Notes.Name = "Notes"
         Me.Notes.ReadOnly = True
         '
+        'LoadsBindingSource
+        '
+        Me.LoadsBindingSource.DataMember = "Loads"
+        Me.LoadsBindingSource.DataSource = Me.CartridgeDataSet
+        '
+        'CartridgeDataSet
+        '
+        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
+        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.radHandgun)
+        Me.GroupBox1.Controls.Add(Me.radRifle)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 28)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(122, 68)
+        Me.GroupBox1.TabIndex = 55
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Load Type"
+        '
+        'LoadsTableAdapter
+        '
+        Me.LoadsTableAdapter.ClearBeforeFill = True
+        '
+        'txtLoadId
+        '
+        Me.txtLoadId.Location = New System.Drawing.Point(13, 102)
+        Me.txtLoadId.Name = "txtLoadId"
+        Me.txtLoadId.Size = New System.Drawing.Size(120, 20)
+        Me.txtLoadId.TabIndex = 56
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -359,7 +355,6 @@ Partial Class MainForm
         Me.Controls.Add(Me.txtLoadId)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dgvLoadList)
-        Me.Controls.Add(Me.btnDeleteLoad)
         Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Label6)
@@ -405,7 +400,6 @@ Partial Class MainForm
     Friend WithEvents mnuItmExit As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtnExit As Button
-    Friend WithEvents btnDeleteLoad As Button
     Friend WithEvents AddComponentsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents mnuItmAddComponents As ToolStripMenuItem
     Friend WithEvents mnuItmAddLoad As ToolStripMenuItem
@@ -424,4 +418,5 @@ Partial Class MainForm
     Friend WithEvents PowderWeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents OALDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Notes As DataGridViewTextBoxColumn
+    Friend WithEvents DeleteLoadsToolStripMenuItem As ToolStripMenuItem
 End Class

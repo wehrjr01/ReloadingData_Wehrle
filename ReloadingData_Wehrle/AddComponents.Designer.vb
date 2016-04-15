@@ -309,11 +309,11 @@ Partial Class AddComponents
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(26, 336)
+        Me.btnDelete.Location = New System.Drawing.Point(26, 320)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
         Me.btnDelete.TabIndex = 89
-        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.Text = "Update Component"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'AddComponents
