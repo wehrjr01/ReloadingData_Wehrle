@@ -7,10 +7,10 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="60" ViewPortY="15" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Powder" ZOrder="5" X="121" Y="285" Height="134" Width="189" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:Bullet" ZOrder="1" X="375" Y="214" Height="210" Width="190" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
-    <Shape ID="DesignTable:Cartridge" ZOrder="4" X="616" Y="40" Height="153" Width="199" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:ChronoData" ZOrder="3" X="367" Y="43" Height="153" Width="214" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:Loads" ZOrder="2" X="104" Y="25" Height="248" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
+    <Shape ID="DesignTable:Bullet" ZOrder="3" X="388" Y="285" Height="210" Width="190" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:Cartridge" ZOrder="2" X="791" Y="88" Height="153" Width="199" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:Loads" ZOrder="4" X="104" Y="25" Height="248" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
+    <Shape ID="DesignTable:ChronoData" ZOrder="1" X="360" Y="68" Height="172" Width="258" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
