@@ -370,7 +370,7 @@ ORDER BY Date</CommandText>
   <xs:element name="CartridgeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CartridgeDataSet" msprop:Generator_UserDSName="CartridgeDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Powder" msprop:Generator_TableClassName="PowderDataTable" msprop:Generator_TableVarName="tablePowder" msprop:Generator_TablePropName="Powder" msprop:Generator_RowDeletingName="PowderRowDeleting" msprop:Generator_RowChangingName="PowderRowChanging" msprop:Generator_RowEvHandlerName="PowderRowChangeEventHandler" msprop:Generator_RowDeletedName="PowderRowDeleted" msprop:Generator_UserTableName="Powder" msprop:Generator_RowChangedName="PowderRowChanged" msprop:Generator_RowEvArgName="PowderRowChangeEvent" msprop:Generator_RowClassName="PowderRow">
+        <xs:element name="Powder" msprop:Generator_TableClassName="PowderDataTable" msprop:Generator_TableVarName="tablePowder" msprop:Generator_RowChangedName="PowderRowChanged" msprop:Generator_TablePropName="Powder" msprop:Generator_RowDeletingName="PowderRowDeleting" msprop:Generator_RowChangingName="PowderRowChanging" msprop:Generator_RowEvHandlerName="PowderRowChangeEventHandler" msprop:Generator_RowDeletedName="PowderRowDeleted" msprop:Generator_RowClassName="PowderRow" msprop:Generator_UserTableName="Powder" msprop:Generator_RowEvArgName="PowderRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Manufacturer" msprop:Generator_ColumnVarNameInTable="columnManufacturer" msprop:Generator_ColumnPropNameInRow="Manufacturer" msprop:Generator_ColumnPropNameInTable="ManufacturerColumn" msprop:Generator_UserColumnName="Manufacturer">
@@ -391,7 +391,7 @@ ORDER BY Date</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Bullet" msprop:Generator_TableClassName="BulletDataTable" msprop:Generator_TableVarName="tableBullet" msprop:Generator_TablePropName="Bullet" msprop:Generator_RowDeletingName="BulletRowDeleting" msprop:Generator_RowChangingName="BulletRowChanging" msprop:Generator_RowEvHandlerName="BulletRowChangeEventHandler" msprop:Generator_RowDeletedName="BulletRowDeleted" msprop:Generator_UserTableName="Bullet" msprop:Generator_RowChangedName="BulletRowChanged" msprop:Generator_RowEvArgName="BulletRowChangeEvent" msprop:Generator_RowClassName="BulletRow">
+        <xs:element name="Bullet" msprop:Generator_TableClassName="BulletDataTable" msprop:Generator_TableVarName="tableBullet" msprop:Generator_RowChangedName="BulletRowChanged" msprop:Generator_TablePropName="Bullet" msprop:Generator_RowDeletingName="BulletRowDeleting" msprop:Generator_RowChangingName="BulletRowChanging" msprop:Generator_RowEvHandlerName="BulletRowChangeEventHandler" msprop:Generator_RowDeletedName="BulletRowDeleted" msprop:Generator_RowClassName="BulletRow" msprop:Generator_UserTableName="Bullet" msprop:Generator_RowEvArgName="BulletRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="BulletId" msprop:Generator_ColumnVarNameInTable="columnBulletId" msprop:Generator_ColumnPropNameInRow="BulletId" msprop:Generator_ColumnPropNameInTable="BulletIdColumn" msprop:Generator_UserColumnName="BulletId" type="xs:int" />
@@ -415,7 +415,7 @@ ORDER BY Date</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Cartridge" msprop:Generator_TableClassName="CartridgeDataTable" msprop:Generator_TableVarName="tableCartridge" msprop:Generator_RowChangedName="CartridgeRowChanged" msprop:Generator_TablePropName="Cartridge" msprop:Generator_RowDeletingName="CartridgeRowDeleting" msprop:Generator_RowChangingName="CartridgeRowChanging" msprop:Generator_RowEvHandlerName="CartridgeRowChangeEventHandler" msprop:Generator_RowDeletedName="CartridgeRowDeleted" msprop:Generator_RowClassName="CartridgeRow" msprop:Generator_UserTableName="Cartridge" msprop:Generator_RowEvArgName="CartridgeRowChangeEvent">
+        <xs:element name="Cartridge" msprop:Generator_TableClassName="CartridgeDataTable" msprop:Generator_TableVarName="tableCartridge" msprop:Generator_TablePropName="Cartridge" msprop:Generator_RowDeletingName="CartridgeRowDeleting" msprop:Generator_RowChangingName="CartridgeRowChanging" msprop:Generator_RowEvHandlerName="CartridgeRowChangeEventHandler" msprop:Generator_RowDeletedName="CartridgeRowDeleted" msprop:Generator_UserTableName="Cartridge" msprop:Generator_RowChangedName="CartridgeRowChanged" msprop:Generator_RowEvArgName="CartridgeRowChangeEvent" msprop:Generator_RowClassName="CartridgeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
@@ -430,7 +430,7 @@ ORDER BY Date</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Loads" msprop:Generator_TableClassName="LoadsDataTable" msprop:Generator_TableVarName="tableLoads" msprop:Generator_TablePropName="Loads" msprop:Generator_RowDeletingName="LoadsRowDeleting" msprop:Generator_RowChangingName="LoadsRowChanging" msprop:Generator_RowEvHandlerName="LoadsRowChangeEventHandler" msprop:Generator_RowDeletedName="LoadsRowDeleted" msprop:Generator_UserTableName="Loads" msprop:Generator_RowChangedName="LoadsRowChanged" msprop:Generator_RowEvArgName="LoadsRowChangeEvent" msprop:Generator_RowClassName="LoadsRow">
+        <xs:element name="Loads" msprop:Generator_TableClassName="LoadsDataTable" msprop:Generator_TableVarName="tableLoads" msprop:Generator_RowChangedName="LoadsRowChanged" msprop:Generator_TablePropName="Loads" msprop:Generator_RowDeletingName="LoadsRowDeleting" msprop:Generator_RowChangingName="LoadsRowChanging" msprop:Generator_RowEvHandlerName="LoadsRowChangeEventHandler" msprop:Generator_RowDeletedName="LoadsRowDeleted" msprop:Generator_RowClassName="LoadsRow" msprop:Generator_UserTableName="Loads" msprop:Generator_RowEvArgName="LoadsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LoadId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnLoadId" msprop:Generator_ColumnPropNameInRow="LoadId" msprop:Generator_ColumnPropNameInTable="LoadIdColumn" msprop:Generator_UserColumnName="LoadId" type="xs:int" />
@@ -468,7 +468,7 @@ ORDER BY Date</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ChronoData" msprop:Generator_TableClassName="ChronoDataDataTable" msprop:Generator_TableVarName="tableChronoData" msprop:Generator_RowChangedName="ChronoDataRowChanged" msprop:Generator_TablePropName="ChronoData" msprop:Generator_RowDeletingName="ChronoDataRowDeleting" msprop:Generator_RowChangingName="ChronoDataRowChanging" msprop:Generator_RowEvHandlerName="ChronoDataRowChangeEventHandler" msprop:Generator_RowDeletedName="ChronoDataRowDeleted" msprop:Generator_RowClassName="ChronoDataRow" msprop:Generator_UserTableName="ChronoData" msprop:Generator_RowEvArgName="ChronoDataRowChangeEvent">
+        <xs:element name="ChronoData" msprop:Generator_TableClassName="ChronoDataDataTable" msprop:Generator_TableVarName="tableChronoData" msprop:Generator_TablePropName="ChronoData" msprop:Generator_RowDeletingName="ChronoDataRowDeleting" msprop:Generator_RowChangingName="ChronoDataRowChanging" msprop:Generator_RowEvHandlerName="ChronoDataRowChangeEventHandler" msprop:Generator_RowDeletedName="ChronoDataRowDeleted" msprop:Generator_UserTableName="ChronoData" msprop:Generator_RowChangedName="ChronoDataRowChanged" msprop:Generator_RowEvArgName="ChronoDataRowChangeEvent" msprop:Generator_RowClassName="ChronoDataRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

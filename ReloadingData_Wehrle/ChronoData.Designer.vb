@@ -51,18 +51,22 @@ Partial Class ChronoData
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.dgvVelocity = New System.Windows.Forms.DataGridView()
-        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
+        Me.CartridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ChronoDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ChronoDataTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.ChronoDataTableAdapter()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Velocity1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LoadIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VelocityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CartridgeDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
+        Me.CartridgeTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.CartridgeTableAdapter()
+        Me.ChronoDataTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.ChronoDataTableAdapter()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChronoDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -195,12 +199,13 @@ Partial Class ChronoData
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.TextBox8)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 249)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(220, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(226, 124)
         Me.GroupBox1.TabIndex = 45
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Add A Velocity"
@@ -286,7 +291,7 @@ Partial Class ChronoData
         Me.dgvVelocity.AllowUserToDeleteRows = False
         Me.dgvVelocity.AutoGenerateColumns = False
         Me.dgvVelocity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVelocity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.Velocity1DataGridViewTextBoxColumn, Me.LoadIdDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn})
+        Me.dgvVelocity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VelocityDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn})
         Me.dgvVelocity.DataSource = Me.ChronoDataBindingSource
         Me.dgvVelocity.Location = New System.Drawing.Point(215, 29)
         Me.dgvVelocity.Name = "dgvVelocity"
@@ -295,40 +300,22 @@ Partial Class ChronoData
         Me.dgvVelocity.Size = New System.Drawing.Size(406, 150)
         Me.dgvVelocity.TabIndex = 51
         '
-        'CartridgeDataSet
+        'CartridgeBindingSource
         '
-        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
-        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.CartridgeBindingSource.DataMember = "Cartridge"
+        Me.CartridgeBindingSource.DataSource = Me.CartridgeDataSetBindingSource
         '
         'ChronoDataBindingSource
         '
         Me.ChronoDataBindingSource.DataMember = "ChronoData"
-        Me.ChronoDataBindingSource.DataSource = Me.CartridgeDataSet
+        Me.ChronoDataBindingSource.DataSource = Me.CartridgeDataSetBindingSource
         '
-        'ChronoDataTableAdapter
+        'VelocityDataGridViewTextBoxColumn
         '
-        Me.ChronoDataTableAdapter.ClearBeforeFill = True
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'Velocity1DataGridViewTextBoxColumn
-        '
-        Me.Velocity1DataGridViewTextBoxColumn.DataPropertyName = "Velocity1"
-        Me.Velocity1DataGridViewTextBoxColumn.HeaderText = "Velocity1"
-        Me.Velocity1DataGridViewTextBoxColumn.Name = "Velocity1DataGridViewTextBoxColumn"
-        Me.Velocity1DataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'LoadIdDataGridViewTextBoxColumn
-        '
-        Me.LoadIdDataGridViewTextBoxColumn.DataPropertyName = "LoadId"
-        Me.LoadIdDataGridViewTextBoxColumn.HeaderText = "LoadId"
-        Me.LoadIdDataGridViewTextBoxColumn.Name = "LoadIdDataGridViewTextBoxColumn"
-        Me.LoadIdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.VelocityDataGridViewTextBoxColumn.DataPropertyName = "Velocity"
+        Me.VelocityDataGridViewTextBoxColumn.HeaderText = "Velocity"
+        Me.VelocityDataGridViewTextBoxColumn.Name = "VelocityDataGridViewTextBoxColumn"
+        Me.VelocityDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DateDataGridViewTextBoxColumn
         '
@@ -336,6 +323,31 @@ Partial Class ChronoData
         Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
         Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
         Me.DateDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CartridgeDataSetBindingSource
+        '
+        Me.CartridgeDataSetBindingSource.DataSource = Me.CartridgeDataSet
+        Me.CartridgeDataSetBindingSource.Position = 0
+        '
+        'CartridgeDataSet
+        '
+        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
+        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CartridgeTableAdapter
+        '
+        Me.CartridgeTableAdapter.ClearBeforeFill = True
+        '
+        'ChronoDataTableAdapter
+        '
+        Me.ChronoDataTableAdapter.ClearBeforeFill = True
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(9, 83)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 52
         '
         'ChronoData
         '
@@ -371,8 +383,10 @@ Partial Class ChronoData
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChronoDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -407,10 +421,13 @@ Partial Class ChronoData
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dgvVelocity As DataGridView
     Friend WithEvents CartridgeDataSet As CartridgeDataSet
+    Friend WithEvents Velocity1DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CartridgeDataSetBindingSource As BindingSource
+    Friend WithEvents CartridgeBindingSource As BindingSource
+    Friend WithEvents CartridgeTableAdapter As CartridgeDataSetTableAdapters.CartridgeTableAdapter
     Friend WithEvents ChronoDataBindingSource As BindingSource
     Friend WithEvents ChronoDataTableAdapter As CartridgeDataSetTableAdapters.ChronoDataTableAdapter
-    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents Velocity1DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents LoadIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents VelocityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
