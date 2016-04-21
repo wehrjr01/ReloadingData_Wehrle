@@ -1,44 +1,47 @@
-﻿Option Strict On
-Option Explicit On
-
-Public Class Loads
-    Private adapter As New CartridgeDataSetTableAdapters.LoadsTableAdapter
-    Private comboAdapter As New CartridgeDataSetTableAdapters.LoadBulletTableAdapter
+﻿Public Class Velocity
+    Private adapter As New CartridgeDataSetTableAdapters.ChronoDataTableAdapter
     Public Shared Property LastError As String
 
-    Public Function Insert(ByVal cartName As String,
-                           ByVal bulletId As Integer,
-                           ByVal primer As String,
-                           ByVal powderName As String,
-                           ByVal powderWeight As Decimal,
-                           ByVal oAL As Decimal,
-                           ByVal notes As String) As Boolean
+    Public Function Insert(ByVal velo As Integer,
+                           ByVal loadId As Integer,
+                           ByVal firedDate As Date) As Boolean
         Try
             LastError = String.Empty
-            adapter.Insert(cartName, bulletId, primer, powderName, powderWeight, oAL, notes)
+            adapter.Insert(velo, loadId, firedDate)
             Return True
-
         Catch ex As Exception
             LastError = ex.Message
             Return False
 
         End Try
     End Function
-    Public ReadOnly Property Items As DataTable
+
+
+
+
+
+
+
+    'Public ReadOnly Property Items As DataTable
+    '    Get
+    '        Return adapter.GetData()
+    '    End Get
+    'End Property
+    Public ReadOnly Property Items() As DataTable
         Get
-            Return adapter.GetData()
+            Dim table As DataTable = adapter.GetData()
+            table.DefaultView.Sort = "Name"
+            Return table
         End Get
     End Property
-
-
     'Public Shared Function CombinedDateTime(ByVal aDate As DateTime, ByVal aTime As DateTime) As DateTime
     '    Dim ts As New TimeSpan(aTime.Hour, aTime.Minute, 0)
     '    Return aDate.Add(ts)
     'End Function
 
-    'Public Function GetByLoadId(ByVal loadId As Short) As DataTable
+    'Public Function GetByCustomerId(ByVal custId As Short) As DataTable
     '    Dim table As DataTable = adapter.GetData()
-    '    table.DefaultView.RowFilter = "Load = " & custId
+    '    table.DefaultView.RowFilter = "CustId = " & custId
     '    Return table
     'End Function
 
@@ -63,22 +66,20 @@ Public Class Loads
 
 
 
-    Public Function FindByLoadId(ByVal loadId As Integer) As CartridgeDataSet.LoadBulletRow
-        Dim table As CartridgeDataSet.LoadBulletDataTable
-        table = comboAdapter.GetDataInnerJoinLoadBullet
-        Return table.FindByLoadId(loadId)
-    End Function
+    'Public Function FindByApptId(ByVal apptId As Short) As RepairServicesDataSet.AppointmentsRow
+    '    Dim table As RepairServicesDataSet.AppointmentsDataTable
+    '    table = adapter.GetData()
+    '    Return table.FindByApptId(apptId)
+    'End Function
 
-    Public Function Delete(ByVal loadId As Integer) As Boolean
-        Dim rowsAffected As Integer = adapter.Delete(loadId)
-        Return rowsAffected > 0
-    End Function
+    'Public Function Delete(ByVal powderName As Integer) As Boolean
+    '    Dim rowsAffected As Integer = adapter.Delete(powderName)
+    '    Return rowsAffected > 0
+    'End Function
     'Public ReadOnly Property AppointmentList As DataTable
     '    Get
     '        Dim listAdapter As New RepairServicesDataSetTableAdapters.AppointmentListTableAdapter
     '        Return listAdapter.GetData()
     '    End Get
     'End Property
-
-
 End Class

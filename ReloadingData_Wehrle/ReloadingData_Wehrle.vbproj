@@ -145,6 +145,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Powders.vb" />
+    <Compile Include="Velocity.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddComponents.resx">

@@ -27,7 +27,6 @@
             Return
         End If
 
-        ChronoData.ShowDialog()
     End Sub
 
 

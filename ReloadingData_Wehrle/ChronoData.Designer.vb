@@ -30,19 +30,20 @@ Partial Class ChronoData
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtLoadNum = New System.Windows.Forms.TextBox()
+        Me.txtPowName = New System.Windows.Forms.TextBox()
+        Me.txtPowWeight = New System.Windows.Forms.TextBox()
+        Me.txtBulWeight = New System.Windows.Forms.TextBox()
+        Me.txtBullet = New System.Windows.Forms.TextBox()
+        Me.txtCal = New System.Windows.Forms.TextBox()
+        Me.txtCoal = New System.Windows.Forms.TextBox()
+        Me.txtInputVelocity = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.dtpNewVelocity = New System.Windows.Forms.DateTimePicker()
+        Me.btnAddVelocity = New System.Windows.Forms.Button()
+        Me.txtStdDev = New System.Windows.Forms.TextBox()
+        Me.txtAvgVel = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -50,23 +51,25 @@ Partial Class ChronoData
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteSelectedVelocityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.dgvVelocity = New System.Windows.Forms.DataGridView()
-        Me.CartridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ChronoDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VelocityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ChronoDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CartridgeDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
+        Me.CartridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnReturn = New System.Windows.Forms.Button()
         Me.CartridgeTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.CartridgeTableAdapter()
         Me.ChronoDataTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.ChronoDataTableAdapter()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChronoDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -132,61 +135,61 @@ Partial Class ChronoData
         Me.Label7.TabIndex = 34
         Me.Label7.Text = "Bullet Weight"
         '
-        'TextBox1
+        'txtLoadNum
         '
-        Me.TextBox1.Location = New System.Drawing.Point(95, 55)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 35
+        Me.txtLoadNum.Location = New System.Drawing.Point(95, 55)
+        Me.txtLoadNum.Name = "txtLoadNum"
+        Me.txtLoadNum.Size = New System.Drawing.Size(100, 20)
+        Me.txtLoadNum.TabIndex = 35
         '
-        'TextBox2
+        'txtPowName
         '
-        Me.TextBox2.Location = New System.Drawing.Point(95, 159)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 36
+        Me.txtPowName.Location = New System.Drawing.Point(95, 159)
+        Me.txtPowName.Name = "txtPowName"
+        Me.txtPowName.Size = New System.Drawing.Size(100, 20)
+        Me.txtPowName.TabIndex = 36
         '
-        'TextBox3
+        'txtPowWeight
         '
-        Me.TextBox3.Location = New System.Drawing.Point(95, 189)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 37
+        Me.txtPowWeight.Location = New System.Drawing.Point(95, 189)
+        Me.txtPowWeight.Name = "txtPowWeight"
+        Me.txtPowWeight.Size = New System.Drawing.Size(100, 20)
+        Me.txtPowWeight.TabIndex = 37
         '
-        'TextBox4
+        'txtBulWeight
         '
-        Me.TextBox4.Location = New System.Drawing.Point(95, 133)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 38
+        Me.txtBulWeight.Location = New System.Drawing.Point(95, 133)
+        Me.txtBulWeight.Name = "txtBulWeight"
+        Me.txtBulWeight.Size = New System.Drawing.Size(100, 20)
+        Me.txtBulWeight.TabIndex = 38
         '
-        'TextBox5
+        'txtBullet
         '
-        Me.TextBox5.Location = New System.Drawing.Point(95, 107)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox5.TabIndex = 39
+        Me.txtBullet.Location = New System.Drawing.Point(95, 107)
+        Me.txtBullet.Name = "txtBullet"
+        Me.txtBullet.Size = New System.Drawing.Size(100, 20)
+        Me.txtBullet.TabIndex = 39
         '
-        'TextBox6
+        'txtCal
         '
-        Me.TextBox6.Location = New System.Drawing.Point(95, 81)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox6.TabIndex = 40
+        Me.txtCal.Location = New System.Drawing.Point(95, 81)
+        Me.txtCal.Name = "txtCal"
+        Me.txtCal.Size = New System.Drawing.Size(100, 20)
+        Me.txtCal.TabIndex = 40
         '
-        'TextBox7
+        'txtCoal
         '
-        Me.TextBox7.Location = New System.Drawing.Point(95, 215)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox7.TabIndex = 41
+        Me.txtCoal.Location = New System.Drawing.Point(95, 215)
+        Me.txtCoal.Name = "txtCoal"
+        Me.txtCoal.Size = New System.Drawing.Size(100, 20)
+        Me.txtCoal.TabIndex = 41
         '
-        'TextBox8
+        'txtInputVelocity
         '
-        Me.TextBox8.Location = New System.Drawing.Point(9, 57)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox8.TabIndex = 43
+        Me.txtInputVelocity.Location = New System.Drawing.Point(9, 57)
+        Me.txtInputVelocity.Name = "txtInputVelocity"
+        Me.txtInputVelocity.Size = New System.Drawing.Size(100, 20)
+        Me.txtInputVelocity.TabIndex = 43
         '
         'Label8
         '
@@ -199,10 +202,10 @@ Partial Class ChronoData
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.dtpNewVelocity)
+        Me.GroupBox1.Controls.Add(Me.btnAddVelocity)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.TextBox8)
+        Me.GroupBox1.Controls.Add(Me.txtInputVelocity)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 249)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(226, 124)
@@ -210,28 +213,35 @@ Partial Class ChronoData
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Add A Velocity"
         '
-        'Button1
+        'dtpNewVelocity
         '
-        Me.Button1.Location = New System.Drawing.Point(129, 54)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 45
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.dtpNewVelocity.Location = New System.Drawing.Point(9, 83)
+        Me.dtpNewVelocity.Name = "dtpNewVelocity"
+        Me.dtpNewVelocity.Size = New System.Drawing.Size(200, 20)
+        Me.dtpNewVelocity.TabIndex = 52
         '
-        'TextBox9
+        'btnAddVelocity
         '
-        Me.TextBox9.Location = New System.Drawing.Point(486, 198)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox9.TabIndex = 46
+        Me.btnAddVelocity.Location = New System.Drawing.Point(129, 54)
+        Me.btnAddVelocity.Name = "btnAddVelocity"
+        Me.btnAddVelocity.Size = New System.Drawing.Size(75, 23)
+        Me.btnAddVelocity.TabIndex = 45
+        Me.btnAddVelocity.Text = "Add"
+        Me.btnAddVelocity.UseVisualStyleBackColor = True
         '
-        'TextBox10
+        'txtStdDev
         '
-        Me.TextBox10.Location = New System.Drawing.Point(284, 198)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox10.TabIndex = 47
+        Me.txtStdDev.Location = New System.Drawing.Point(486, 198)
+        Me.txtStdDev.Name = "txtStdDev"
+        Me.txtStdDev.Size = New System.Drawing.Size(100, 20)
+        Me.txtStdDev.TabIndex = 46
+        '
+        'txtAvgVel
+        '
+        Me.txtAvgVel.Location = New System.Drawing.Point(284, 198)
+        Me.txtAvgVel.Name = "txtAvgVel"
+        Me.txtAvgVel.Size = New System.Drawing.Size(100, 20)
+        Me.txtAvgVel.TabIndex = 47
         '
         'Label9
         '
@@ -253,7 +263,7 @@ Partial Class ChronoData
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.AboutToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.AboutToolStripMenuItem, Me.EditToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(650, 24)
@@ -285,30 +295,30 @@ Partial Class ChronoData
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
         '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteSelectedVelocityToolStripMenuItem})
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
+        Me.EditToolStripMenuItem.Text = "Edit"
+        '
+        'DeleteSelectedVelocityToolStripMenuItem
+        '
+        Me.DeleteSelectedVelocityToolStripMenuItem.Name = "DeleteSelectedVelocityToolStripMenuItem"
+        Me.DeleteSelectedVelocityToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.DeleteSelectedVelocityToolStripMenuItem.Text = "Delete Selected Velocity"
+        '
         'dgvVelocity
         '
-        Me.dgvVelocity.AllowUserToAddRows = False
-        Me.dgvVelocity.AllowUserToDeleteRows = False
         Me.dgvVelocity.AutoGenerateColumns = False
         Me.dgvVelocity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvVelocity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VelocityDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn})
         Me.dgvVelocity.DataSource = Me.ChronoDataBindingSource
         Me.dgvVelocity.Location = New System.Drawing.Point(215, 29)
         Me.dgvVelocity.Name = "dgvVelocity"
-        Me.dgvVelocity.ReadOnly = True
         Me.dgvVelocity.RowHeadersVisible = False
-        Me.dgvVelocity.Size = New System.Drawing.Size(406, 150)
+        Me.dgvVelocity.Size = New System.Drawing.Size(205, 150)
         Me.dgvVelocity.TabIndex = 51
-        '
-        'CartridgeBindingSource
-        '
-        Me.CartridgeBindingSource.DataMember = "Cartridge"
-        Me.CartridgeBindingSource.DataSource = Me.CartridgeDataSetBindingSource
-        '
-        'ChronoDataBindingSource
-        '
-        Me.ChronoDataBindingSource.DataMember = "ChronoData"
-        Me.ChronoDataBindingSource.DataSource = Me.CartridgeDataSetBindingSource
         '
         'VelocityDataGridViewTextBoxColumn
         '
@@ -324,6 +334,11 @@ Partial Class ChronoData
         Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
         Me.DateDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'ChronoDataBindingSource
+        '
+        Me.ChronoDataBindingSource.DataMember = "ChronoData"
+        Me.ChronoDataBindingSource.DataSource = Me.CartridgeDataSetBindingSource
+        '
         'CartridgeDataSetBindingSource
         '
         Me.CartridgeDataSetBindingSource.DataSource = Me.CartridgeDataSet
@@ -334,6 +349,20 @@ Partial Class ChronoData
         Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
         Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'CartridgeBindingSource
+        '
+        Me.CartridgeBindingSource.DataMember = "Cartridge"
+        Me.CartridgeBindingSource.DataSource = Me.CartridgeDataSetBindingSource
+        '
+        'btnReturn
+        '
+        Me.btnReturn.Location = New System.Drawing.Point(422, 301)
+        Me.btnReturn.Name = "btnReturn"
+        Me.btnReturn.Size = New System.Drawing.Size(105, 25)
+        Me.btnReturn.TabIndex = 52
+        Me.btnReturn.Text = "Return To Main"
+        Me.btnReturn.UseVisualStyleBackColor = True
+        '
         'CartridgeTableAdapter
         '
         Me.CartridgeTableAdapter.ClearBeforeFill = True
@@ -342,31 +371,25 @@ Partial Class ChronoData
         '
         Me.ChronoDataTableAdapter.ClearBeforeFill = True
         '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(9, 83)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 52
-        '
         'ChronoData
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(650, 385)
+        Me.Controls.Add(Me.btnReturn)
         Me.Controls.Add(Me.dgvVelocity)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox10)
-        Me.Controls.Add(Me.TextBox9)
+        Me.Controls.Add(Me.txtAvgVel)
+        Me.Controls.Add(Me.txtStdDev)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.TextBox7)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtCoal)
+        Me.Controls.Add(Me.txtCal)
+        Me.Controls.Add(Me.txtBullet)
+        Me.Controls.Add(Me.txtBulWeight)
+        Me.Controls.Add(Me.txtPowWeight)
+        Me.Controls.Add(Me.txtPowName)
+        Me.Controls.Add(Me.txtLoadNum)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -383,10 +406,10 @@ Partial Class ChronoData
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChronoDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -399,19 +422,19 @@ Partial Class ChronoData
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents txtLoadNum As TextBox
+    Friend WithEvents txtPowName As TextBox
+    Friend WithEvents txtPowWeight As TextBox
+    Friend WithEvents txtBulWeight As TextBox
+    Friend WithEvents txtBullet As TextBox
+    Friend WithEvents txtCal As TextBox
+    Friend WithEvents txtCoal As TextBox
+    Friend WithEvents txtInputVelocity As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents btnAddVelocity As Button
+    Friend WithEvents txtStdDev As TextBox
+    Friend WithEvents txtAvgVel As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
@@ -429,5 +452,8 @@ Partial Class ChronoData
     Friend WithEvents ChronoDataTableAdapter As CartridgeDataSetTableAdapters.ChronoDataTableAdapter
     Friend WithEvents VelocityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtpNewVelocity As DateTimePicker
+    Friend WithEvents btnReturn As Button
+    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteSelectedVelocityToolStripMenuItem As ToolStripMenuItem
 End Class
