@@ -16,12 +16,6 @@
         End Try
     End Function
 
-
-
-
-
-
-
     'Public ReadOnly Property Items As DataTable
     '    Get
     '        Return adapter.GetData()
@@ -71,15 +65,8 @@
     '    table = adapter.GetData()
     '    Return table.FindByApptId(apptId)
     'End Function
-
-    'Public Function Delete(ByVal powderName As Integer) As Boolean
-    '    Dim rowsAffected As Integer = adapter.Delete(powderName)
-    '    Return rowsAffected > 0
-    'End Function
-    'Public ReadOnly Property AppointmentList As DataTable
-    '    Get
-    '        Dim listAdapter As New RepairServicesDataSetTableAdapters.AppointmentListTableAdapter
-    '        Return listAdapter.GetData()
-    '    End Get
-    'End Property
+    Public Function Delete(ByVal Id As Integer) As Boolean
+        Dim rowsAffected As Integer = adapter.Delete(Id)
+        Return rowsAffected > 0
+    End Function
 End Class

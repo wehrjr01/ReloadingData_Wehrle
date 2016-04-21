@@ -33,20 +33,26 @@
     Public Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load, MyBase.Activated
         'TODO: This line of code loads data into the 'CartridgeDataSet.Loads' table. You can move, or remove it, as needed.
         Me.LoadsTableAdapter.Fill(Me.CartridgeDataSet.Loads)
+
         'Fill the caliber combo box.
         cboDiameter.DataSource = mBullet.Items
         cboDiameter.DisplayMember = "Diameter"
         cboDiameter.ValueMember = "BulletId"
+        cboDiameter.SelectedIndex = -1
+
 
         'Fill the powder combo box.
         cboPowders.DataSource = mPowder.Items
         cboPowders.DisplayMember = "Name"
         cboPowders.ValueMember = "Name"
+        cboPowders.SelectedIndex = -1
+
 
         'Fill the bullet weight combo box
         cboBulletWeight.DataSource = mBullet.Items
         cboBulletWeight.DisplayMember = "Weight"
         cboBulletWeight.ValueMember = "BulletId"
+        cboBulletWeight.SelectedIndex = -1
 
     End Sub
 

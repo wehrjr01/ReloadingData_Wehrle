@@ -54,27 +54,27 @@ Partial Class ChronoData
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteSelectedVelocityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.dgvVelocity = New System.Windows.Forms.DataGridView()
-        Me.VelocityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ChronoDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CartridgeDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
         Me.CartridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnReturn = New System.Windows.Forms.Button()
-        Me.CartridgeTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.CartridgeTableAdapter()
-        Me.ChronoDataTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.ChronoDataTableAdapter()
         Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.VelocityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CartridgeDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
+        Me.CartridgeTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.CartridgeTableAdapter()
+        Me.ChronoDataTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.ChronoDataTableAdapter()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChronoDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
+        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -142,6 +142,7 @@ Partial Class ChronoData
         '
         'txtLoadNum
         '
+        Me.txtLoadNum.Enabled = False
         Me.txtLoadNum.Location = New System.Drawing.Point(95, 55)
         Me.txtLoadNum.Name = "txtLoadNum"
         Me.txtLoadNum.Size = New System.Drawing.Size(100, 20)
@@ -149,6 +150,7 @@ Partial Class ChronoData
         '
         'txtPowName
         '
+        Me.txtPowName.Enabled = False
         Me.txtPowName.Location = New System.Drawing.Point(95, 159)
         Me.txtPowName.Name = "txtPowName"
         Me.txtPowName.Size = New System.Drawing.Size(100, 20)
@@ -156,6 +158,7 @@ Partial Class ChronoData
         '
         'txtPowWeight
         '
+        Me.txtPowWeight.Enabled = False
         Me.txtPowWeight.Location = New System.Drawing.Point(95, 189)
         Me.txtPowWeight.Name = "txtPowWeight"
         Me.txtPowWeight.Size = New System.Drawing.Size(100, 20)
@@ -163,6 +166,7 @@ Partial Class ChronoData
         '
         'txtBulWeight
         '
+        Me.txtBulWeight.Enabled = False
         Me.txtBulWeight.Location = New System.Drawing.Point(95, 133)
         Me.txtBulWeight.Name = "txtBulWeight"
         Me.txtBulWeight.Size = New System.Drawing.Size(100, 20)
@@ -170,6 +174,7 @@ Partial Class ChronoData
         '
         'txtBullet
         '
+        Me.txtBullet.Enabled = False
         Me.txtBullet.Location = New System.Drawing.Point(95, 107)
         Me.txtBullet.Name = "txtBullet"
         Me.txtBullet.Size = New System.Drawing.Size(100, 20)
@@ -177,6 +182,7 @@ Partial Class ChronoData
         '
         'txtCal
         '
+        Me.txtCal.Enabled = False
         Me.txtCal.Location = New System.Drawing.Point(95, 81)
         Me.txtCal.Name = "txtCal"
         Me.txtCal.Size = New System.Drawing.Size(100, 20)
@@ -184,6 +190,7 @@ Partial Class ChronoData
         '
         'txtCoal
         '
+        Me.txtCoal.Enabled = False
         Me.txtCoal.Location = New System.Drawing.Point(95, 215)
         Me.txtCoal.Name = "txtCoal"
         Me.txtCoal.Size = New System.Drawing.Size(100, 20)
@@ -315,44 +322,22 @@ Partial Class ChronoData
         '
         'dgvVelocity
         '
+        Me.dgvVelocity.AllowUserToAddRows = False
+        Me.dgvVelocity.AllowUserToDeleteRows = False
         Me.dgvVelocity.AutoGenerateColumns = False
         Me.dgvVelocity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvVelocity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VelocityDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn})
         Me.dgvVelocity.DataSource = Me.ChronoDataBindingSource
         Me.dgvVelocity.Location = New System.Drawing.Point(215, 29)
         Me.dgvVelocity.Name = "dgvVelocity"
-        Me.dgvVelocity.RowHeadersVisible = False
-        Me.dgvVelocity.Size = New System.Drawing.Size(205, 150)
+        Me.dgvVelocity.ReadOnly = True
+        Me.dgvVelocity.Size = New System.Drawing.Size(244, 150)
         Me.dgvVelocity.TabIndex = 51
-        '
-        'VelocityDataGridViewTextBoxColumn
-        '
-        Me.VelocityDataGridViewTextBoxColumn.DataPropertyName = "Velocity"
-        Me.VelocityDataGridViewTextBoxColumn.HeaderText = "Velocity"
-        Me.VelocityDataGridViewTextBoxColumn.Name = "VelocityDataGridViewTextBoxColumn"
-        Me.VelocityDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DateDataGridViewTextBoxColumn
-        '
-        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
-        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
-        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
-        Me.DateDataGridViewTextBoxColumn.ReadOnly = True
         '
         'ChronoDataBindingSource
         '
         Me.ChronoDataBindingSource.DataMember = "ChronoData"
         Me.ChronoDataBindingSource.DataSource = Me.CartridgeDataSetBindingSource
-        '
-        'CartridgeDataSetBindingSource
-        '
-        Me.CartridgeDataSetBindingSource.DataSource = Me.CartridgeDataSet
-        Me.CartridgeDataSetBindingSource.Position = 0
-        '
-        'CartridgeDataSet
-        '
-        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
-        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CartridgeBindingSource
         '
@@ -367,14 +352,6 @@ Partial Class ChronoData
         Me.btnReturn.TabIndex = 52
         Me.btnReturn.Text = "Return To Main"
         Me.btnReturn.UseVisualStyleBackColor = True
-        '
-        'CartridgeTableAdapter
-        '
-        Me.CartridgeTableAdapter.ClearBeforeFill = True
-        '
-        'ChronoDataTableAdapter
-        '
-        Me.ChronoDataTableAdapter.ClearBeforeFill = True
         '
         'errProvider
         '
@@ -393,6 +370,38 @@ Partial Class ChronoData
         '
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 17)
+        '
+        'VelocityDataGridViewTextBoxColumn
+        '
+        Me.VelocityDataGridViewTextBoxColumn.DataPropertyName = "Velocity"
+        Me.VelocityDataGridViewTextBoxColumn.HeaderText = "Velocity"
+        Me.VelocityDataGridViewTextBoxColumn.Name = "VelocityDataGridViewTextBoxColumn"
+        Me.VelocityDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DateDataGridViewTextBoxColumn
+        '
+        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
+        Me.DateDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CartridgeDataSetBindingSource
+        '
+        Me.CartridgeDataSetBindingSource.DataSource = Me.CartridgeDataSet
+        Me.CartridgeDataSetBindingSource.Position = 0
+        '
+        'CartridgeDataSet
+        '
+        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
+        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CartridgeTableAdapter
+        '
+        Me.CartridgeTableAdapter.ClearBeforeFill = True
+        '
+        'ChronoDataTableAdapter
+        '
+        Me.ChronoDataTableAdapter.ClearBeforeFill = True
         '
         'ChronoData
         '
@@ -431,12 +440,12 @@ Partial Class ChronoData
         Me.MenuStrip1.PerformLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChronoDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

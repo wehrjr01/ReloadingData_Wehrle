@@ -188,7 +188,7 @@ Partial Class MainForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuItmFile, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1031, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1145, 24)
         Me.MenuStrip1.TabIndex = 51
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -253,10 +253,10 @@ Partial Class MainForm
         Me.dgvLoadList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvLoadList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LoadIdDataGridViewTextBoxColumn, Me.CartNameDataGridViewTextBoxColumn, Me.BulletIdDataGridViewTextBoxColumn, Me.PrimerDataGridViewTextBoxColumn, Me.PowderNameDataGridViewTextBoxColumn, Me.PowderWeightDataGridViewTextBoxColumn, Me.OALDataGridViewTextBoxColumn, Me.Notes})
         Me.dgvLoadList.DataSource = Me.LoadsBindingSource
-        Me.dgvLoadList.Location = New System.Drawing.Point(219, 28)
+        Me.dgvLoadList.Location = New System.Drawing.Point(223, 27)
         Me.dgvLoadList.Name = "dgvLoadList"
         Me.dgvLoadList.ReadOnly = True
-        Me.dgvLoadList.Size = New System.Drawing.Size(800, 254)
+        Me.dgvLoadList.Size = New System.Drawing.Size(846, 254)
         Me.dgvLoadList.TabIndex = 54
         '
         'LoadIdDataGridViewTextBoxColumn
@@ -351,7 +351,7 @@ Partial Class MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1031, 382)
+        Me.ClientSize = New System.Drawing.Size(1145, 382)
         Me.Controls.Add(Me.txtLoadId)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dgvLoadList)

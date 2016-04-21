@@ -14,16 +14,7 @@ Public Class ChronoData
     Private Sub ChronoData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ChronoDataTableAdapter.FillByLoadId(CartridgeDataSet.ChronoData, LoadId)
-        Dim velocityRow As CartridgeDataSet.ChronoDataRow
         Dim row As CartridgeDataSet.LoadBulletRow
-        Dim velTotal As Double = 0
-        Dim count As Integer = 0
-        Dim avgVelocity As Double
-        Dim squares As New List(Of Double)
-        Dim squareAvg As Double = 0
-        Dim velDiff As Double = 0
-        Dim stdDev As Double = 0
-
         row = mLoad.FindByLoadId(LoadId)
         txtLoadNum.Text = row.LoadId.ToString
         txtCal.Text = row.CartName.ToString
@@ -32,6 +23,19 @@ Public Class ChronoData
         txtPowName.Text = row.PowderName.ToString
         txtPowWeight.Text = row.Powder_Weight.ToString
         txtCoal.Text = row.OAL.ToString
+        recalculate()
+
+    End Sub
+    Public Sub recalculate()
+        Dim velocityRow As CartridgeDataSet.ChronoDataRow
+
+        Dim velTotal As Double = 0
+        Dim count As Integer = 0
+        Dim avgVelocity As Double
+        Dim squares As New List(Of Double)
+        Dim squareAvg As Double = 0
+        Dim velDiff As Double = 0
+        Dim stdDev As Double = 0
 
         For Each velocityRow In CartridgeDataSet.ChronoData.Rows
             count += 1
@@ -45,10 +49,9 @@ Public Class ChronoData
         Next
         squareAvg = squares.Average()
         stdDev = Math.Sqrt(squareAvg)
-        txtStdDev.Text = stdDev.ToString
-        txtAvgVel.Text = avgVelocity.ToString
+        txtStdDev.Text = stdDev.ToString("N2")
+        txtAvgVel.Text = avgVelocity.ToString("N2")
     End Sub
-
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
         Me.Close()
 
@@ -72,7 +75,7 @@ Public Class ChronoData
         If mVelocity.Insert(velo, CInt(txtLoadNum.Text.ToString), dtpNewVelocity.Value) = True Then
             txtInputVelocity.Text = ""
             lblStatus.Text = "Velocity added successfully"
-            'Me.BulletTableAdapter.Fill(Me.CartridgeDataSet.Bullet)
+            ChronoDataTableAdapter.FillByLoadId(CartridgeDataSet.ChronoData, LoadId)
 
         Else
             txtInputVelocity.Text = ""
@@ -80,5 +83,10 @@ Public Class ChronoData
             txtInputVelocity.Focus()
             Return
         End If
+        recalculate()
+    End Sub
+
+    Private Sub DeleteSelectedVelocityToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteSelectedVelocityToolStripMenuItem.Click
+
     End Sub
 End Class
