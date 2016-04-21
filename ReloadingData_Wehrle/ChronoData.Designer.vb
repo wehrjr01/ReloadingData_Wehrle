@@ -63,6 +63,9 @@ Partial Class ChronoData
         Me.btnReturn = New System.Windows.Forms.Button()
         Me.CartridgeTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.CartridgeTableAdapter()
         Me.ChronoDataTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.ChronoDataTableAdapter()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,6 +73,8 @@ Partial Class ChronoData
         CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label3
@@ -371,11 +376,30 @@ Partial Class ChronoData
         '
         Me.ChronoDataTableAdapter.ClearBeforeFill = True
         '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 388)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(650, 22)
+        Me.StatusStrip1.TabIndex = 53
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'lblStatus
+        '
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(0, 17)
+        '
         'ChronoData
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(650, 385)
+        Me.ClientSize = New System.Drawing.Size(650, 410)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.btnReturn)
         Me.Controls.Add(Me.dgvVelocity)
         Me.Controls.Add(Me.Label10)
@@ -410,6 +434,9 @@ Partial Class ChronoData
         CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -456,4 +483,7 @@ Partial Class ChronoData
     Friend WithEvents btnReturn As Button
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteSelectedVelocityToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents errProvider As ErrorProvider
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents lblStatus As ToolStripStatusLabel
 End Class

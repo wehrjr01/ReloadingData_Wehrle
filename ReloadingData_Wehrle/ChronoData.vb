@@ -4,6 +4,7 @@ Option Explicit On
 
 Public Class ChronoData
     Dim mLoad As New Loads
+    Dim mVelocity As New Velocity
     Public Property LoadId As Integer
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -54,6 +55,30 @@ Public Class ChronoData
     End Sub
 
     Private Sub btnAddVelocity_Click(sender As Object, e As EventArgs) Handles btnAddVelocity.Click
+        Dim velo As Integer
+        errProvider.Clear()
 
+        If (Not Integer.TryParse(txtInputVelocity.Text, velo)) Then
+            errProvider.SetError(txtInputVelocity, "Enter a valid velocity")
+            txtInputVelocity.Focus()
+            Return
+        End If
+        If (velo < 0) Then
+            errProvider.SetError(txtInputVelocity, "Enter a valid velocity")
+            txtInputVelocity.Focus()
+            Return
+        End If
+
+        If mVelocity.Insert(velo, CInt(txtLoadNum.Text.ToString), dtpNewVelocity.Value) = True Then
+            txtInputVelocity.Text = ""
+            lblStatus.Text = "Velocity added successfully"
+            'Me.BulletTableAdapter.Fill(Me.CartridgeDataSet.Bullet)
+
+        Else
+            txtInputVelocity.Text = ""
+            lblStatus.Text = "Cannot add velocity," & Velocity.LastError
+            txtInputVelocity.Focus()
+            Return
+        End If
     End Sub
 End Class

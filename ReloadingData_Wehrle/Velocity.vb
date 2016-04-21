@@ -7,7 +7,7 @@
                            ByVal firedDate As Date) As Boolean
         Try
             LastError = String.Empty
-            adapter.Insert(velo, loadId, firedDate)
+            adapter.Insert(velo, loadId, firedDate) ' this returns exception about scalar variable id, not sure how to get it to stop asking for it
             Return True
         Catch ex As Exception
             LastError = ex.Message
