@@ -50,31 +50,31 @@ Partial Class ChronoData
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteSelectedVelocityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.dgvVelocity = New System.Windows.Forms.DataGridView()
+        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VelocityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ChronoDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CartridgeDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
         Me.CartridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnReturn = New System.Windows.Forms.Button()
         Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.VelocityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CartridgeDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
         Me.CartridgeTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.CartridgeTableAdapter()
         Me.ChronoDataTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.ChronoDataTableAdapter()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChronoDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
-        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -275,7 +275,7 @@ Partial Class ChronoData
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.AboutToolStripMenuItem, Me.EditToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.EditToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(650, 24)
@@ -301,12 +301,6 @@ Partial Class ChronoData
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
-        Me.AboutToolStripMenuItem.Text = "About"
-        '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteSelectedVelocityToolStripMenuItem})
@@ -326,18 +320,49 @@ Partial Class ChronoData
         Me.dgvVelocity.AllowUserToDeleteRows = False
         Me.dgvVelocity.AutoGenerateColumns = False
         Me.dgvVelocity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVelocity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VelocityDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn})
+        Me.dgvVelocity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.VelocityDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn})
         Me.dgvVelocity.DataSource = Me.ChronoDataBindingSource
         Me.dgvVelocity.Location = New System.Drawing.Point(215, 29)
         Me.dgvVelocity.Name = "dgvVelocity"
         Me.dgvVelocity.ReadOnly = True
-        Me.dgvVelocity.Size = New System.Drawing.Size(244, 150)
+        Me.dgvVelocity.Size = New System.Drawing.Size(342, 150)
         Me.dgvVelocity.TabIndex = 51
+        '
+        'Id
+        '
+        Me.Id.DataPropertyName = "Id"
+        Me.Id.HeaderText = "Id"
+        Me.Id.Name = "Id"
+        Me.Id.ReadOnly = True
+        '
+        'VelocityDataGridViewTextBoxColumn
+        '
+        Me.VelocityDataGridViewTextBoxColumn.DataPropertyName = "Velocity"
+        Me.VelocityDataGridViewTextBoxColumn.HeaderText = "Velocity"
+        Me.VelocityDataGridViewTextBoxColumn.Name = "VelocityDataGridViewTextBoxColumn"
+        Me.VelocityDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DateDataGridViewTextBoxColumn
+        '
+        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
+        Me.DateDataGridViewTextBoxColumn.ReadOnly = True
         '
         'ChronoDataBindingSource
         '
         Me.ChronoDataBindingSource.DataMember = "ChronoData"
         Me.ChronoDataBindingSource.DataSource = Me.CartridgeDataSetBindingSource
+        '
+        'CartridgeDataSetBindingSource
+        '
+        Me.CartridgeDataSetBindingSource.DataSource = Me.CartridgeDataSet
+        Me.CartridgeDataSetBindingSource.Position = 0
+        '
+        'CartridgeDataSet
+        '
+        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
+        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CartridgeBindingSource
         '
@@ -370,30 +395,6 @@ Partial Class ChronoData
         '
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 17)
-        '
-        'VelocityDataGridViewTextBoxColumn
-        '
-        Me.VelocityDataGridViewTextBoxColumn.DataPropertyName = "Velocity"
-        Me.VelocityDataGridViewTextBoxColumn.HeaderText = "Velocity"
-        Me.VelocityDataGridViewTextBoxColumn.Name = "VelocityDataGridViewTextBoxColumn"
-        Me.VelocityDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DateDataGridViewTextBoxColumn
-        '
-        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
-        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
-        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
-        Me.DateDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CartridgeDataSetBindingSource
-        '
-        Me.CartridgeDataSetBindingSource.DataSource = Me.CartridgeDataSet
-        Me.CartridgeDataSetBindingSource.Position = 0
-        '
-        'CartridgeDataSet
-        '
-        Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
-        Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CartridgeTableAdapter
         '
@@ -440,12 +441,12 @@ Partial Class ChronoData
         Me.MenuStrip1.PerformLayout()
         CType(Me.dgvVelocity, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChronoDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
-        CType(Me.CartridgeDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -477,7 +478,6 @@ Partial Class ChronoData
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dgvVelocity As DataGridView
     Friend WithEvents CartridgeDataSet As CartridgeDataSet
     Friend WithEvents Velocity1DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -486,8 +486,6 @@ Partial Class ChronoData
     Friend WithEvents CartridgeTableAdapter As CartridgeDataSetTableAdapters.CartridgeTableAdapter
     Friend WithEvents ChronoDataBindingSource As BindingSource
     Friend WithEvents ChronoDataTableAdapter As CartridgeDataSetTableAdapters.ChronoDataTableAdapter
-    Friend WithEvents VelocityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents dtpNewVelocity As DateTimePicker
     Friend WithEvents btnReturn As Button
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
@@ -495,4 +493,7 @@ Partial Class ChronoData
     Friend WithEvents errProvider As ErrorProvider
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents lblStatus As ToolStripStatusLabel
+    Friend WithEvents Id As DataGridViewTextBoxColumn
+    Friend WithEvents VelocityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

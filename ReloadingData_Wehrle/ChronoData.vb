@@ -27,8 +27,8 @@ Public Class ChronoData
 
     End Sub
     Public Sub recalculate()
-        Dim velocityRow As CartridgeDataSet.ChronoDataRow
 
+        Dim velocityRow As CartridgeDataSet.ChronoDataRow
         Dim velTotal As Double = 0
         Dim count As Integer = 0
         Dim avgVelocity As Double
@@ -41,20 +41,21 @@ Public Class ChronoData
             count += 1
             velTotal += velocityRow.Velocity
         Next
-        avgVelocity = velTotal / count
+        If count > 0 Then ' this prevents an exception if there is no velocity data to display
+            avgVelocity = velTotal / count
 
-        For Each velocityRow In CartridgeDataSet.ChronoData.Rows
-            velDiff = velocityRow.Velocity - avgVelocity
-            squares.Add(Math.Pow(velDiff, 2))
-        Next
-        squareAvg = squares.Average()
-        stdDev = Math.Sqrt(squareAvg)
-        txtStdDev.Text = stdDev.ToString("N2")
-        txtAvgVel.Text = avgVelocity.ToString("N2")
+            For Each velocityRow In CartridgeDataSet.ChronoData.Rows
+                velDiff = velocityRow.Velocity - avgVelocity
+                squares.Add(Math.Pow(velDiff, 2))
+            Next
+            squareAvg = squares.Average()
+            stdDev = Math.Sqrt(squareAvg)
+            txtStdDev.Text = stdDev.ToString("N2")
+            txtAvgVel.Text = avgVelocity.ToString("N2")
+        End If
     End Sub
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
         Me.Close()
-
     End Sub
 
     Private Sub btnAddVelocity_Click(sender As Object, e As EventArgs) Handles btnAddVelocity.Click
@@ -86,7 +87,21 @@ Public Class ChronoData
         recalculate()
     End Sub
 
-    Private Sub DeleteSelectedVelocityToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteSelectedVelocityToolStripMenuItem.Click
 
+
+    Private Sub DeleteSelectedVelocityToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteSelectedVelocityToolStripMenuItem.Click
+        If dgvVelocity.SelectedRows.Count > 0 Then
+            Dim Id As Integer = CInt(dgvVelocity.SelectedRows(0).Cells(0).Value)
+            Dim delvel As New Velocity
+            If delvel.Delete(Id) Then
+                recalculate()
+                ChronoDataTableAdapter.FillByLoadId(CartridgeDataSet.ChronoData, LoadId)
+            Else
+                lblStatus.Text = "Velocity not deleted"
+            End If
+        End If
     End Sub
+
+
 End Class
+

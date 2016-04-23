@@ -1,10 +1,7 @@
 ﻿Public Class MainForm
     Dim mBullet As New Bullets
-    Dim mPowder As New Powders
+    Dim mLoads As New Loads
     Dim selectedLoad As String
-
-
-
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuItmExit.Click
         Me.Close()
@@ -21,7 +18,6 @@
             Dim frm As New ChronoData
             frm.LoadId = loadId
             frm.ShowDialog()
-            ' dgvAppointments.DataSource = mAppointments.Items
         Else
             MessageBox.Show("Please select a load to view chrono data")
             Return
@@ -31,28 +27,19 @@
 
 
     Public Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load, MyBase.Activated
-        'TODO: This line of code loads data into the 'CartridgeDataSet.Loads' table. You can move, or remove it, as needed.
+
+        'need to clear the text boxes and drop downs here
+
         Me.LoadsTableAdapter.Fill(Me.CartridgeDataSet.Loads)
 
-        'Fill the caliber combo box.
-        cboDiameter.DataSource = mBullet.Items
-        cboDiameter.DisplayMember = "Diameter"
-        cboDiameter.ValueMember = "BulletId"
-        cboDiameter.SelectedIndex = -1
+        'Fill the cartridge combo box.
+        cboCartridge.DataSource = mLoads.Items
+        cboCartridge.DisplayMember = "CartName"
+        cboCartridge.ValueMember = "CartName"
+        cboCartridge.SelectedIndex = -1
 
 
-        'Fill the powder combo box.
-        cboPowders.DataSource = mPowder.Items
-        cboPowders.DisplayMember = "Name"
-        cboPowders.ValueMember = "Name"
-        cboPowders.SelectedIndex = -1
 
-
-        'Fill the bullet weight combo box
-        cboBulletWeight.DataSource = mBullet.Items
-        cboBulletWeight.DisplayMember = "Weight"
-        cboBulletWeight.ValueMember = "BulletId"
-        cboBulletWeight.SelectedIndex = -1
 
     End Sub
 
@@ -65,10 +52,23 @@
     End Sub
 
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
-        Me.LoadsTableAdapter.FillbyLoadId(CartridgeDataSet.Loads, txtLoadId.Text)
+
+        If txtLoadId.Text <> "" Then
+            Me.LoadsTableAdapter.FillByLoadId(Me.CartridgeDataSet.Loads, txtLoadId.Text)
+            cboCartridge.SelectedIndex = -1
+        Else Me.LoadsTableAdapter.FillByCartName(Me.CartridgeDataSet.Loads, cboCartridge.Text)
+
+        End If
+
+
+
+
+        'Me.LoadsTableAdapter.FillByLoadId(CartridgeDataSet.Loads, txtLoadId.Text)
     End Sub
 
     Private Sub DeleteLoadsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteLoadsToolStripMenuItem.Click
         DeleteLoadForm.ShowDialog()
     End Sub
+
+
 End Class

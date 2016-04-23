@@ -23,12 +23,9 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.cboDiameter = New System.Windows.Forms.ComboBox()
-        Me.cboBulletWeight = New System.Windows.Forms.ComboBox()
+        Me.cboCartridge = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.btnView = New System.Windows.Forms.Button()
-        Me.cboPowders = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -59,46 +56,32 @@ Partial Class MainForm
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
         Me.txtLoadId = New System.Windows.Forms.TextBox()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'cboDiameter
+        'cboCartridge
         '
-        Me.cboDiameter.FormattingEnabled = True
-        Me.cboDiameter.Location = New System.Drawing.Point(12, 138)
-        Me.cboDiameter.Name = "cboDiameter"
-        Me.cboDiameter.Size = New System.Drawing.Size(121, 21)
-        Me.cboDiameter.TabIndex = 0
-        '
-        'cboBulletWeight
-        '
-        Me.cboBulletWeight.FormattingEnabled = True
-        Me.cboBulletWeight.Location = New System.Drawing.Point(12, 170)
-        Me.cboBulletWeight.Name = "cboBulletWeight"
-        Me.cboBulletWeight.Size = New System.Drawing.Size(121, 21)
-        Me.cboBulletWeight.TabIndex = 3
+        Me.cboCartridge.FormattingEnabled = True
+        Me.cboCartridge.Location = New System.Drawing.Point(12, 138)
+        Me.cboCartridge.Name = "cboCartridge"
+        Me.cboCartridge.Size = New System.Drawing.Size(121, 21)
+        Me.cboCartridge.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(139, 141)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(78, 13)
+        Me.Label1.Size = New System.Drawing.Size(80, 13)
         Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Bullet Diameter"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(135, 173)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 13)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Bullet Weight"
+        Me.Label1.Text = "Cartridge Name"
         '
         'btnView
         '
@@ -109,22 +92,13 @@ Partial Class MainForm
         Me.btnView.Text = "View Loads"
         Me.btnView.UseVisualStyleBackColor = True
         '
-        'cboPowders
-        '
-        Me.cboPowders.FormattingEnabled = True
-        Me.cboPowders.Location = New System.Drawing.Point(12, 207)
-        Me.cboPowders.Name = "cboPowders"
-        Me.cboPowders.Size = New System.Drawing.Size(121, 21)
-        Me.cboPowders.TabIndex = 8
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(135, 210)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 13)
+        Me.Label3.Size = New System.Drawing.Size(0, 13)
         Me.Label3.TabIndex = 9
-        Me.Label3.Text = "Powder Name"
         '
         'Label4
         '
@@ -188,7 +162,7 @@ Partial Class MainForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuItmFile, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1145, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1248, 24)
         Me.MenuStrip1.TabIndex = 51
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -347,11 +321,26 @@ Partial Class MainForm
         Me.txtLoadId.Size = New System.Drawing.Size(120, 20)
         Me.txtLoadId.TabIndex = 56
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 425)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(1248, 22)
+        Me.StatusStrip1.TabIndex = 57
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'lblStatus
+        '
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(0, 17)
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1145, 382)
+        Me.ClientSize = New System.Drawing.Size(1248, 447)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.txtLoadId)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dgvLoadList)
@@ -362,12 +351,9 @@ Partial Class MainForm
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.cboPowders)
         Me.Controls.Add(Me.btnView)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cboBulletWeight)
-        Me.Controls.Add(Me.cboDiameter)
+        Me.Controls.Add(Me.cboCartridge)
         Me.Name = "MainForm"
         Me.Text = "Reloading Database"
         Me.MenuStrip1.ResumeLayout(False)
@@ -377,17 +363,16 @@ Partial Class MainForm
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents cboDiameter As ComboBox
-    Friend WithEvents cboBulletWeight As ComboBox
+    Friend WithEvents cboCartridge As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents btnView As Button
-    Friend WithEvents cboPowders As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
@@ -419,4 +404,6 @@ Partial Class MainForm
     Friend WithEvents OALDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Notes As DataGridViewTextBoxColumn
     Friend WithEvents DeleteLoadsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents lblStatus As ToolStripStatusLabel
 End Class

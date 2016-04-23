@@ -24,11 +24,6 @@ Public Class AddLoad
         cboPowders.DisplayMember = "Name"
         cboPowders.ValueMember = "Name"
 
-        'TODO: This line of code loads data into the 'CartridgeDataSet.Loads' table. You can move, or remove it, as needed.
-        'Dim selectedCaliber As New Cartridge
-        'selectedCaliber = cboCaliberName.SelectedValue
-        'mdiameter = 0.3
-        'mrifle = True
 
         Me.BulletTableAdapter.FillByDia_Rifle(Me.CartridgeDataSet.Bullet, mdiameter, mrifle)
 
@@ -116,21 +111,4 @@ Public Class AddLoad
         End If
 
     End Sub
-
-
-
-
-
-
-    'If cboMemberName.SelectedIndex = -1 Then Exit Sub
-    '    'Get the Member_Id value associated with the selected member
-    '    Dim member_Id As Short = CShort(cboMemberName.SelectedValue)
-    '    'Fill the payments grid, passing it the member ID.
-    '    PaymentsTableAdapter.MemberPayments(KarateDataSet.Payments, member_Id)
-    'End Sub
-
-
-
-
-
 End Class
