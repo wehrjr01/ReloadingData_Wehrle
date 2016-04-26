@@ -87,6 +87,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutReloadingData.Designer.vb">
+      <DependentUpon>AboutReloadingData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AboutReloadingData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AddComponents.Designer.vb">
       <DependentUpon>AddComponents.vb</DependentUpon>
     </Compile>
@@ -148,6 +154,9 @@
     <Compile Include="Velocity.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutReloadingData.resx">
+      <DependentUpon>AboutReloadingData.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddComponents.resx">
       <DependentUpon>AddComponents.vb</DependentUpon>
     </EmbeddedResource>

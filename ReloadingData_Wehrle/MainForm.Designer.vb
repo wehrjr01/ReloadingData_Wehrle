@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class MainForm
+Partial Class btnViewAll
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,8 +29,6 @@ Partial Class MainForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.radHandgun = New System.Windows.Forms.RadioButton()
-        Me.radRifle = New System.Windows.Forms.RadioButton()
         Me.btnViewChrono = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -53,23 +51,24 @@ Partial Class MainForm
         Me.Notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LoadsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
         Me.txtLoadId = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'cboCartridge
         '
         Me.cboCartridge.FormattingEnabled = True
-        Me.cboCartridge.Location = New System.Drawing.Point(12, 138)
+        Me.cboCartridge.Location = New System.Drawing.Point(5, 45)
         Me.cboCartridge.Name = "cboCartridge"
         Me.cboCartridge.Size = New System.Drawing.Size(121, 21)
         Me.cboCartridge.TabIndex = 0
@@ -77,7 +76,7 @@ Partial Class MainForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(139, 141)
+        Me.Label1.Location = New System.Drawing.Point(144, 48)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(80, 13)
         Me.Label1.TabIndex = 5
@@ -85,11 +84,11 @@ Partial Class MainForm
         '
         'btnView
         '
-        Me.btnView.Location = New System.Drawing.Point(26, 288)
+        Me.btnView.Location = New System.Drawing.Point(54, 76)
         Me.btnView.Name = "btnView"
         Me.btnView.Size = New System.Drawing.Size(100, 23)
         Me.btnView.TabIndex = 7
-        Me.btnView.Text = "View Loads"
+        Me.btnView.Text = "Find Load"
         Me.btnView.UseVisualStyleBackColor = True
         '
         'Label3
@@ -116,32 +115,9 @@ Partial Class MainForm
         Me.Label5.Size = New System.Drawing.Size(0, 13)
         Me.Label5.TabIndex = 13
         '
-        'radHandgun
-        '
-        Me.radHandgun.AutoSize = True
-        Me.radHandgun.Checked = True
-        Me.radHandgun.Location = New System.Drawing.Point(17, 19)
-        Me.radHandgun.Name = "radHandgun"
-        Me.radHandgun.Size = New System.Drawing.Size(101, 17)
-        Me.radHandgun.TabIndex = 16
-        Me.radHandgun.TabStop = True
-        Me.radHandgun.Text = "Handgun Loads"
-        Me.radHandgun.UseVisualStyleBackColor = True
-        '
-        'radRifle
-        '
-        Me.radRifle.AutoSize = True
-        Me.radRifle.Location = New System.Drawing.Point(17, 42)
-        Me.radRifle.Name = "radRifle"
-        Me.radRifle.Size = New System.Drawing.Size(78, 17)
-        Me.radRifle.TabIndex = 17
-        Me.radRifle.TabStop = True
-        Me.radRifle.Text = "Rifle Loads"
-        Me.radRifle.UseVisualStyleBackColor = True
-        '
         'btnViewChrono
         '
-        Me.btnViewChrono.Location = New System.Drawing.Point(219, 288)
+        Me.btnViewChrono.Location = New System.Drawing.Point(183, 186)
         Me.btnViewChrono.Name = "btnViewChrono"
         Me.btnViewChrono.Size = New System.Drawing.Size(102, 23)
         Me.btnViewChrono.TabIndex = 18
@@ -151,7 +127,7 @@ Partial Class MainForm
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(135, 111)
+        Me.Label6.Location = New System.Drawing.Point(144, 22)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(71, 13)
         Me.Label6.TabIndex = 20
@@ -162,7 +138,7 @@ Partial Class MainForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuItmFile, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1248, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1247, 24)
         Me.MenuStrip1.TabIndex = 51
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -212,7 +188,7 @@ Partial Class MainForm
         '
         'BtnExit
         '
-        Me.BtnExit.Location = New System.Drawing.Point(884, 335)
+        Me.BtnExit.Location = New System.Drawing.Point(93, 243)
         Me.BtnExit.Name = "BtnExit"
         Me.BtnExit.Size = New System.Drawing.Size(101, 23)
         Me.BtnExit.TabIndex = 52
@@ -227,7 +203,7 @@ Partial Class MainForm
         Me.dgvLoadList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvLoadList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LoadIdDataGridViewTextBoxColumn, Me.CartNameDataGridViewTextBoxColumn, Me.BulletIdDataGridViewTextBoxColumn, Me.PrimerDataGridViewTextBoxColumn, Me.PowderNameDataGridViewTextBoxColumn, Me.PowderWeightDataGridViewTextBoxColumn, Me.OALDataGridViewTextBoxColumn, Me.Notes})
         Me.dgvLoadList.DataSource = Me.LoadsBindingSource
-        Me.dgvLoadList.Location = New System.Drawing.Point(223, 27)
+        Me.dgvLoadList.Location = New System.Drawing.Point(311, 12)
         Me.dgvLoadList.Name = "dgvLoadList"
         Me.dgvLoadList.ReadOnly = True
         Me.dgvLoadList.Size = New System.Drawing.Size(846, 254)
@@ -299,24 +275,13 @@ Partial Class MainForm
         Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
         Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.radHandgun)
-        Me.GroupBox1.Controls.Add(Me.radRifle)
-        Me.GroupBox1.Location = New System.Drawing.Point(11, 28)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(122, 68)
-        Me.GroupBox1.TabIndex = 55
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Load Type"
-        '
         'LoadsTableAdapter
         '
         Me.LoadsTableAdapter.ClearBeforeFill = True
         '
         'txtLoadId
         '
-        Me.txtLoadId.Location = New System.Drawing.Point(13, 102)
+        Me.txtLoadId.Location = New System.Drawing.Point(6, 19)
         Me.txtLoadId.Name = "txtLoadId"
         Me.txtLoadId.Size = New System.Drawing.Size(120, 20)
         Me.txtLoadId.TabIndex = 56
@@ -324,9 +289,9 @@ Partial Class MainForm
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 425)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 298)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1248, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1247, 22)
         Me.StatusStrip1.TabIndex = 57
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -335,36 +300,55 @@ Partial Class MainForm
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 17)
         '
-        'MainForm
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(12, 186)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 23)
+        Me.Button1.TabIndex = 58
+        Me.Button1.Text = "View All Loads"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.txtLoadId)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.cboCartridge)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.btnView)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 35)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(257, 115)
+        Me.GroupBox2.TabIndex = 59
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Search For Loads"
+        '
+        'btnViewAll
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1248, 447)
+        Me.ClientSize = New System.Drawing.Size(1247, 320)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.txtLoadId)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dgvLoadList)
         Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btnViewChrono)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.btnView)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cboCartridge)
-        Me.Name = "MainForm"
+        Me.Name = "btnViewAll"
         Me.Text = "Reloading Database"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoadsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -376,8 +360,6 @@ Partial Class MainForm
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents radHandgun As RadioButton
-    Friend WithEvents radRifle As RadioButton
     Friend WithEvents btnViewChrono As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
@@ -389,7 +371,6 @@ Partial Class MainForm
     Friend WithEvents mnuItmAddComponents As ToolStripMenuItem
     Friend WithEvents mnuItmAddLoad As ToolStripMenuItem
     Friend WithEvents dgvLoadList As DataGridView
-    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents CartridgeDataSet As CartridgeDataSet
     Friend WithEvents LoadsBindingSource As BindingSource
     Friend WithEvents LoadsTableAdapter As CartridgeDataSetTableAdapters.LoadsTableAdapter
@@ -406,4 +387,6 @@ Partial Class MainForm
     Friend WithEvents DeleteLoadsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents lblStatus As ToolStripStatusLabel
+    Friend WithEvents Button1 As Button
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

@@ -1,4 +1,4 @@
-﻿Public Class MainForm
+﻿Public Class btnViewAll
     Dim mBullet As New Bullets
     Dim mLoads As New Loads
     Dim selectedLoad As String
@@ -52,23 +52,19 @@
     End Sub
 
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
-
         If txtLoadId.Text <> "" Then
             Me.LoadsTableAdapter.FillByLoadId(Me.CartridgeDataSet.Loads, txtLoadId.Text)
-            cboCartridge.SelectedIndex = -1
         Else Me.LoadsTableAdapter.FillByCartName(Me.CartridgeDataSet.Loads, cboCartridge.Text)
-
         End If
-
-
-
-
-        'Me.LoadsTableAdapter.FillByLoadId(CartridgeDataSet.Loads, txtLoadId.Text)
+        cboCartridge.SelectedIndex = -1
+        txtLoadId.Text = ""
     End Sub
 
     Private Sub DeleteLoadsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteLoadsToolStripMenuItem.Click
         DeleteLoadForm.ShowDialog()
     End Sub
 
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.LoadsTableAdapter.Fill(Me.CartridgeDataSet.Loads)
+    End Sub
 End Class
