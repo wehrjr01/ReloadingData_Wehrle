@@ -7,13 +7,14 @@ Public Class AddLoad
     Dim mdiameter As Decimal
     Dim mrifle As Boolean
     Dim mload As New Loads
-
-
-
-
+    ''' <summary>
+    ''' Page load event, fills the bullets available data table and the combo boxes
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub AddLoad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'CartridgeDataSet.Bullet' table. You can move, or remove it, as needed.
-        Me.BulletTableAdapter.Fill(Me.CartridgeDataSet.Bullet)
+
+
         'Fill the caliber combo box.
         cboCaliberName.DataSource = mCaliber.Items
         cboCaliberName.DisplayMember = "Name"
@@ -25,8 +26,8 @@ Public Class AddLoad
         cboPowders.ValueMember = "Name"
 
 
-        Me.BulletTableAdapter.FillByDia_Rifle(Me.CartridgeDataSet.Bullet, mdiameter, mrifle)
-
+        Me.BulletTableAdapter.FillByDia_Rifle(Me.CartridgeDataSet.Bullet, 0, mrifle)
+        clearForm()
 
     End Sub
 
@@ -105,10 +106,20 @@ Public Class AddLoad
         End If
 
         If mload.Insert(cboCaliberName.SelectedValue.ToString, bulletID, txtPrimer.Text.ToString, cboPowders.SelectedValue.ToString, powWeight, coal, notes) Then
-            Me.Close()
+            clearForm()
+            lblStatus.Text = "Load added to database"
         Else
-            lblStatus.Text = "Cannot Add Load "
+            lblStatus.Text = "Cannot Add Load"
         End If
 
+    End Sub
+
+    Private Sub clearForm()
+        cboCaliberName.SelectedIndex = -1
+        cboPowders.SelectedIndex = -1
+        txtPowderWeight.Text = ""
+        txtOal.Text = ""
+        txtPrimer.Text = ""
+        txtNotes.Text = ""
     End Sub
 End Class

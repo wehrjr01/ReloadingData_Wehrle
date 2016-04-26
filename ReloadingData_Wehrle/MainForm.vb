@@ -1,4 +1,4 @@
-﻿Public Class btnViewAll
+﻿Public Class MainForm
     Dim mBullet As New Bullets
     Dim mLoads As New Loads
     Dim selectedLoad As String
@@ -64,7 +64,12 @@
         DeleteLoadForm.ShowDialog()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnViewAll.Click
         Me.LoadsTableAdapter.Fill(Me.CartridgeDataSet.Loads)
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutReloadingData.ShowDialog()
+
     End Sub
 End Class

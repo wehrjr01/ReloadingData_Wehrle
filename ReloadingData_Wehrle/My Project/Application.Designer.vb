@@ -32,7 +32,12 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.ReloadingData_Wehrle.AddComponents
+            Me.MainForm = Global.ReloadingData_Wehrle.MainForm
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
+        Protected Overrides Sub OnCreateSplashScreen()
+            Me.SplashScreen = Global.ReloadingData_Wehrle.AboutReloadingData
         End Sub
     End Class
 End Namespace

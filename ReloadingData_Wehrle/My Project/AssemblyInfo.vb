@@ -8,7 +8,7 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ReloadingData_Wehrle")>
+<Assembly: AssemblyTitle("Reloading Data")>
 <Assembly: AssemblyDescription("Reloading data storage program")>
 <Assembly: AssemblyCompany("J&K Services")>
 <Assembly: AssemblyProduct("ReloadingData_Wehrle")>

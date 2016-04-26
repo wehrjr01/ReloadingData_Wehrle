@@ -4,6 +4,7 @@ Option Explicit On
 Public Class Loads
     Private adapter As New CartridgeDataSetTableAdapters.LoadsTableAdapter
     Private comboAdapter As New CartridgeDataSetTableAdapters.LoadBulletTableAdapter
+    Private veladapter As New CartridgeDataSetTableAdapters.ChronoDataTableAdapter
     Public Shared Property LastError As String
 
     Public Function Insert(ByVal cartName As String,
@@ -30,17 +31,6 @@ Public Class Loads
         End Get
     End Property
 
-
-    'Public Shared Function CombinedDateTime(ByVal aDate As DateTime, ByVal aTime As DateTime) As DateTime
-    '    Dim ts As New TimeSpan(aTime.Hour, aTime.Minute, 0)
-    '    Return aDate.Add(ts)
-    'End Function
-
-    'Public Function GetByLoadId(ByVal loadId As Short) As DataTable
-    '    Dim table As DataTable = adapter.GetData()
-    '    table.DefaultView.RowFilter = "Load = " & custId
-    '    Return table
-    'End Function
 
 
     'Public Function Update(ByVal typeId As Short,
@@ -69,16 +59,15 @@ Public Class Loads
         Return table.FindByLoadId(loadId)
     End Function
 
+    Public Function CheckForVelocities(ByVal LoadId As Integer) As Integer
+        Dim tableV As CartridgeDataSet.ChronoDataDataTable
+        tableV = veladapter.GetDataByLoadId(LoadId)
+        Return tableV.Count
+    End Function
+
     Public Function Delete(ByVal loadId As Integer) As Boolean
         Dim rowsAffected As Integer = adapter.Delete(loadId)
         Return rowsAffected > 0
     End Function
-    'Public ReadOnly Property AppointmentList As DataTable
-    '    Get
-    '        Dim listAdapter As New RepairServicesDataSetTableAdapters.AppointmentListTableAdapter
-    '        Return listAdapter.GetData()
-    '    End Get
-    'End Property
-
 
 End Class

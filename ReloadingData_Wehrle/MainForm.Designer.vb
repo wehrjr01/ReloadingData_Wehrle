@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class btnViewAll
+Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -55,7 +55,7 @@ Partial Class btnViewAll
         Me.txtLoadId = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnViewAll = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -300,14 +300,14 @@ Partial Class btnViewAll
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 17)
         '
-        'Button1
+        'btnViewAll
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 186)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 23)
-        Me.Button1.TabIndex = 58
-        Me.Button1.Text = "View All Loads"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnViewAll.Location = New System.Drawing.Point(12, 186)
+        Me.btnViewAll.Name = "btnViewAll"
+        Me.btnViewAll.Size = New System.Drawing.Size(100, 23)
+        Me.btnViewAll.TabIndex = 58
+        Me.btnViewAll.Text = "View All Loads"
+        Me.btnViewAll.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -323,13 +323,13 @@ Partial Class btnViewAll
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Search For Loads"
         '
-        'btnViewAll
+        'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1247, 320)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnViewAll)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.dgvLoadList)
         Me.Controls.Add(Me.BtnExit)
@@ -338,7 +338,7 @@ Partial Class btnViewAll
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Name = "btnViewAll"
+        Me.Name = "MainForm"
         Me.Text = "Reloading Database"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -387,6 +387,6 @@ Partial Class btnViewAll
     Friend WithEvents DeleteLoadsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents lblStatus As ToolStripStatusLabel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnViewAll As Button
     Friend WithEvents GroupBox2 As GroupBox
 End Class
