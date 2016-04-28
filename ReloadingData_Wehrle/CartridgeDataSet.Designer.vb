@@ -4400,9 +4400,9 @@ Namespace CartridgeDataSetTableAdapters
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE       Loads"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                CartName = @CartName, BulletId = @BulletId"& _ 
                 ", Primer = @Primer, PowderName = @PowderName, [Powder Weight] = @Powder_Weight, "& _ 
-                "OAL = @OAL, Notes = @Notes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (LoadId = @LoadId);     "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT LoadId"& _ 
-                ", CartName, BulletId, Primer, PowderName, [Powder Weight], OAL, Notes FROM Loads"& _ 
-                " WHERE (LoadId = @LoadId)"
+                "OAL = @OAL, Notes = @Notes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (LoadId = @LoadId);      "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT LoadI"& _ 
+                "d, CartName, BulletId, Primer, PowderName, [Powder Weight], OAL, Notes FROM Load"& _ 
+                "s WHERE (LoadId = @LoadId)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CartName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CartName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BulletId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "BulletId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

@@ -49,13 +49,12 @@ Public Class ModifyLoad
 
     End Sub
     ''' <summary>
-    ''' caliber cbo box changed- updates the bullet dvg based on teh selected caliber so that only useable bullets can be selected
+    ''' caliber combo box changed- updates the bullet dgv based on the selected caliber so that only useable bullets can be selected
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub cboCaliberName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboCaliberName.SelectedIndexChanged
         Try
-
             Dim selectedCaliber As String
             selectedCaliber = cboCaliberName.Text
             Dim table As New CartridgeDataSet.CartridgeDataTable
@@ -65,7 +64,6 @@ Public Class ModifyLoad
             mdiameter = row.Caliber
             mrifle = row.Rifle
             Me.BulletTableAdapter.FillByDia_Rifle(Me.CartridgeDataSet.Bullet, mdiameter, mrifle)
-
         Catch ex As Exception
 
         End Try
@@ -128,7 +126,7 @@ Public Class ModifyLoad
 
         If mload.Update(cboCaliberName.Text, bulletID, txtPrimer.Text.ToString, cboPowders.Text, powWeight, coal, notes, loadId) Then
 
-            lblStatus.Text = "Load # " & loadId.ToString & "updated in database"
+            lblStatus.Text = "Load # " & loadId.ToString & "  updated in database"
         Else
             lblStatus.Text = "Cannot update Load"
         End If

@@ -26,7 +26,6 @@ Public Class AddLoad
         cboPowders.DisplayMember = "Name"
         cboPowders.ValueMember = "Name"
 
-
         Me.BulletTableAdapter.FillByDia_Rifle(Me.CartridgeDataSet.Bullet, 0, mrifle)
         clearForm()
 
@@ -85,7 +84,7 @@ Public Class AddLoad
             Return
 
         End If
-        calname = cboCaliberName.Text
+        calname = cboCaliberName.SelectedItem.ToString
         If cboPowders.SelectedIndex = -1 Then
             errProvider.SetError(cboPowders, "Choose a Powder")
             Return

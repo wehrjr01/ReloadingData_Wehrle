@@ -5,7 +5,7 @@
 Option Strict On
 Option Explicit On
 Public Class MainForm
-    Dim mBullet As New Bullets
+    Dim mBullet As New Cartridge
     Dim mLoads As New Loads
     Dim selectedLoad As String
     Dim bulletId As Integer
@@ -56,9 +56,9 @@ Public Class MainForm
         Me.LoadsTableAdapter.Fill(Me.CartridgeDataSet.Loads)
 
         'Fill the cartridge search combo box and leaves it on -1 selected index
-        cboCartridge.DataSource = mLoads.Items
-        cboCartridge.DisplayMember = "CartName"
-        cboCartridge.ValueMember = "CartName"
+        cboCartridge.DataSource = mBullet.Items
+        cboCartridge.DisplayMember = "Name"
+        cboCartridge.ValueMember = "Name"
         cboCartridge.SelectedIndex = -1
 
 
