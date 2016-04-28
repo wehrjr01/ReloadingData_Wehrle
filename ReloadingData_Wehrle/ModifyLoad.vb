@@ -30,7 +30,7 @@ Public Class ModifyLoad
         cboPowders.DisplayMember = "Name"
         cboPowders.ValueMember = "Name"
 
-        cboCaliberName.SelectedValue = row.CartName.ToString
+        cboCaliberName.Text = row.CartName.ToString
         cboPowders.SelectedValue = row.PowderName.ToString
         txtPowderWeight.Text = row.Powder_Weight.ToString
         txtOal.Text = row.OAL.ToString

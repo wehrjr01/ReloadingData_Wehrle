@@ -84,7 +84,7 @@ Public Class AddLoad
             Return
 
         End If
-        calname = cboCaliberName.SelectedItem.ToString
+        calname = cboCaliberName.Text
         If cboPowders.SelectedIndex = -1 Then
             errProvider.SetError(cboPowders, "Choose a Powder")
             Return
