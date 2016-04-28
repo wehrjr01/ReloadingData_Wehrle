@@ -1756,6 +1756,10 @@ Partial Public Class CartridgeDataSet
         
         Private columnType As Global.System.Data.DataColumn
         
+        Private columnPrimer As Global.System.Data.DataColumn
+        
+        Private columnBulletId As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1864,6 +1868,22 @@ Partial Public Class CartridgeDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PrimerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPrimer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property BulletIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBulletId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1900,9 +1920,9 @@ Partial Public Class CartridgeDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddLoadBulletRow(ByVal CartName As String, ByVal PowderName As String, ByVal Powder_Weight As Decimal, ByVal Brand As String, ByVal Weight As Integer, ByVal OAL As Decimal, ByVal Notes As String, ByVal Type As String) As LoadBulletRow
+        Public Overloads Function AddLoadBulletRow(ByVal CartName As String, ByVal PowderName As String, ByVal Powder_Weight As Decimal, ByVal Brand As String, ByVal Weight As Integer, ByVal OAL As Decimal, ByVal Notes As String, ByVal Type As String, ByVal Primer As String, ByVal BulletId As Integer) As LoadBulletRow
             Dim rowLoadBulletRow As LoadBulletRow = CType(Me.NewRow,LoadBulletRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, CartName, PowderName, Powder_Weight, Brand, Weight, OAL, Notes, Type}
+            Dim columnValuesArray() As Object = New Object() {Nothing, CartName, PowderName, Powder_Weight, Brand, Weight, OAL, Notes, Type, Primer, BulletId}
             rowLoadBulletRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowLoadBulletRow)
             Return rowLoadBulletRow
@@ -1940,6 +1960,8 @@ Partial Public Class CartridgeDataSet
             Me.columnOAL = MyBase.Columns("OAL")
             Me.columnNotes = MyBase.Columns("Notes")
             Me.columnType = MyBase.Columns("Type")
+            Me.columnPrimer = MyBase.Columns("Primer")
+            Me.columnBulletId = MyBase.Columns("BulletId")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1963,6 +1985,10 @@ Partial Public Class CartridgeDataSet
             MyBase.Columns.Add(Me.columnNotes)
             Me.columnType = New Global.System.Data.DataColumn("Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnType)
+            Me.columnPrimer = New Global.System.Data.DataColumn("Primer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPrimer)
+            Me.columnBulletId = New Global.System.Data.DataColumn("BulletId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBulletId)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnLoadId}, true))
             Me.columnLoadId.AutoIncrement = true
             Me.columnLoadId.AutoIncrementSeed = -1
@@ -1982,6 +2008,10 @@ Partial Public Class CartridgeDataSet
             Me.columnNotes.MaxLength = 2147483647
             Me.columnType.AllowDBNull = false
             Me.columnType.MaxLength = 50
+            Me.columnPrimer.AllowDBNull = false
+            Me.columnPrimer.Caption = "primer"
+            Me.columnPrimer.MaxLength = 50
+            Me.columnBulletId.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2836,6 +2866,28 @@ Partial Public Class CartridgeDataSet
             End Get
             Set
                 Me(Me.tableLoadBullet.TypeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Primer() As String
+            Get
+                Return CType(Me(Me.tableLoadBullet.PrimerColumn),String)
+            End Get
+            Set
+                Me(Me.tableLoadBullet.PrimerColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property BulletId() As Integer
+            Get
+                Return CType(Me(Me.tableLoadBullet.BulletIdColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableLoadBullet.BulletIdColumn) = value
             End Set
         End Property
         
@@ -4346,30 +4398,20 @@ Namespace CartridgeDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Loads] SET [CartName] = @CartName, [BulletId] = @BulletId, [Primer]"& _ 
-                " = @Primer, [PowderName] = @PowderName, [Powder Weight] = @Powder_Weight, [OAL] "& _ 
-                "= @OAL, [Notes] = @Notes WHERE (([LoadId] = @Original_LoadId) AND ([CartName] = "& _ 
-                "@Original_CartName) AND ([BulletId] = @Original_BulletId) AND ([Primer] = @Origi"& _ 
-                "nal_Primer) AND ([PowderName] = @Original_PowderName) AND ([Powder Weight] = @Or"& _ 
-                "iginal_Powder_Weight) AND ([OAL] = @Original_OAL));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT LoadId, CartName, Bu"& _ 
-                "lletId, Primer, PowderName, [Powder Weight], OAL, Notes FROM Loads WHERE (LoadId"& _ 
-                " = @LoadId)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE       Loads"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                CartName = @CartName, BulletId = @BulletId"& _ 
+                ", Primer = @Primer, PowderName = @PowderName, [Powder Weight] = @Powder_Weight, "& _ 
+                "OAL = @OAL, Notes = @Notes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (LoadId = @LoadId);     "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT LoadId"& _ 
+                ", CartName, BulletId, Primer, PowderName, [Powder Weight], OAL, Notes FROM Loads"& _ 
+                " WHERE (LoadId = @LoadId)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CartName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BulletId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BulletId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Primer", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Primer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PowderName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PowderName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Powder_Weight", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 4, "Powder Weight", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 4, "OAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LoadId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LoadId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CartName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BulletId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BulletId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Primer", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Primer", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PowderName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PowderName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Powder_Weight", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 4, "Powder Weight", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 4, "OAL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LoadId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "LoadId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CartName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CartName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BulletId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "BulletId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Primer", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Primer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PowderName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PowderName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Powder_Weight", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 4, "Powder Weight", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OAL", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 4, "OAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LoadId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "LoadId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4566,7 +4608,7 @@ Namespace CartridgeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CartName As String, ByVal BulletId As Integer, ByVal Primer As String, ByVal PowderName As String, ByVal Powder_Weight As Decimal, ByVal OAL As Decimal, ByVal Notes As String, ByVal Original_LoadId As Integer, ByVal Original_CartName As String, ByVal Original_BulletId As Integer, ByVal Original_Primer As String, ByVal Original_PowderName As String, ByVal Original_Powder_Weight As Decimal, ByVal Original_OAL As Decimal, ByVal LoadId As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal CartName As String, ByVal BulletId As Integer, ByVal Primer As String, ByVal PowderName As String, ByVal Powder_Weight As Decimal, ByVal OAL As Decimal, ByVal Notes As String, ByVal LoadId As Integer) As Integer
             If (CartName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("CartName")
             Else
@@ -4590,26 +4632,7 @@ Namespace CartridgeDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Notes,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_LoadId,Integer)
-            If (Original_CartName Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CartName")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_CartName,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_BulletId,Integer)
-            If (Original_Primer Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Primer")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Primer,String)
-            End If
-            If (Original_PowderName Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_PowderName")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_PowderName,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Powder_Weight,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_OAL,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(LoadId,Integer)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(LoadId,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -4623,14 +4646,6 @@ Namespace CartridgeDataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CartName As String, ByVal BulletId As Integer, ByVal Primer As String, ByVal PowderName As String, ByVal Powder_Weight As Decimal, ByVal OAL As Decimal, ByVal Notes As String, ByVal Original_LoadId As Integer, ByVal Original_CartName As String, ByVal Original_BulletId As Integer, ByVal Original_Primer As String, ByVal Original_PowderName As String, ByVal Original_Powder_Weight As Decimal, ByVal Original_OAL As Decimal) As Integer
-            Return Me.Update(CartName, BulletId, Primer, PowderName, Powder_Weight, OAL, Notes, Original_LoadId, Original_CartName, Original_BulletId, Original_Primer, Original_PowderName, Original_Powder_Weight, Original_OAL, Original_LoadId)
         End Function
     End Class
     
@@ -4770,6 +4785,8 @@ Namespace CartridgeDataSetTableAdapters
             tableMapping.ColumnMappings.Add("OAL", "OAL")
             tableMapping.ColumnMappings.Add("Notes", "Notes")
             tableMapping.ColumnMappings.Add("Type", "Type")
+            tableMapping.ColumnMappings.Add("Primer", "Primer")
+            tableMapping.ColumnMappings.Add("BulletId", "BulletId")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -4787,9 +4804,9 @@ Namespace CartridgeDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Loads.LoadId, Loads.CartName, Loads.PowderName, Loads.[Powder Weigh"& _ 
-                "t], Bullet.Brand, Bullet.Weight, Loads.OAL, Loads.Notes, Bullet.Type"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      "& _ 
-                "      Loads INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Bullet ON Loads.BulletId = Bull"& _ 
-                "et.BulletId"
+                "t], Bullet.Brand, Bullet.Weight, Loads.OAL, Loads.Notes, Bullet.Type, Loads.Bull"& _ 
+                "etId, Loads.Primer"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Loads INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B"& _ 
+                "ullet ON Loads.BulletId = Bullet.BulletId"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection

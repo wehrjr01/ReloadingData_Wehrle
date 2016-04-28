@@ -10,7 +10,11 @@ Public Class ChronoData
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
-
+    ''' <summary>
+    ''' form load event, fills the text boxes to the left so the user knows for sure what load information they are working with
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub ChronoData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ChronoDataTableAdapter.FillByLoadId(CartridgeDataSet.ChronoData, LoadId)
@@ -26,6 +30,9 @@ Public Class ChronoData
         recalculate()
 
     End Sub
+    ''' <summary>
+    ''' sub routine to calculate the average velocity and std deviation
+    ''' </summary>
     Public Sub recalculate()
 
         Dim velocityRow As CartridgeDataSet.ChronoDataRow
@@ -54,10 +61,19 @@ Public Class ChronoData
             txtAvgVel.Text = avgVelocity.ToString("N2")
         End If
     End Sub
+    ''' <summary>
+    ''' handles the return button to close the form
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
         Me.Close()
     End Sub
-
+    ''' <summary>
+    ''' add button function, checks for proper inputs then adds the velocity to the table
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnAddVelocity_Click(sender As Object, e As EventArgs) Handles btnAddVelocity.Click
         Dim velo As Integer
         errProvider.Clear()
@@ -84,11 +100,16 @@ Public Class ChronoData
             txtInputVelocity.Focus()
             Return
         End If
+        'recalculates the std dev and avg velocity once the velocity is added
         recalculate()
     End Sub
 
 
-
+    ''' <summary>
+    ''' menu item delete function deletes the selected velocity from the table
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub DeleteSelectedVelocityToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteSelectedVelocityToolStripMenuItem.Click
         If dgvVelocity.SelectedRows.Count > 0 Then
             Dim Id As Integer = CInt(dgvVelocity.SelectedRows(0).Cells(0).Value)

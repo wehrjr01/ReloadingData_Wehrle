@@ -51,18 +51,21 @@ Partial Class MainForm
         Me.Notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LoadsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CartridgeDataSet = New ReloadingData_Wehrle.CartridgeDataSet()
-        Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
         Me.txtLoadId = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.btnViewAll = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LoadsTableAdapter = New ReloadingData_Wehrle.CartridgeDataSetTableAdapters.LoadsTableAdapter()
+        Me.btnModify = New System.Windows.Forms.Button()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvLoadList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CartridgeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cboCartridge
@@ -84,7 +87,7 @@ Partial Class MainForm
         '
         'btnView
         '
-        Me.btnView.Location = New System.Drawing.Point(54, 76)
+        Me.btnView.Location = New System.Drawing.Point(6, 75)
         Me.btnView.Name = "btnView"
         Me.btnView.Size = New System.Drawing.Size(100, 23)
         Me.btnView.TabIndex = 7
@@ -117,7 +120,7 @@ Partial Class MainForm
         '
         'btnViewChrono
         '
-        Me.btnViewChrono.Location = New System.Drawing.Point(183, 186)
+        Me.btnViewChrono.Location = New System.Drawing.Point(311, 272)
         Me.btnViewChrono.Name = "btnViewChrono"
         Me.btnViewChrono.Size = New System.Drawing.Size(102, 23)
         Me.btnViewChrono.TabIndex = 18
@@ -138,7 +141,7 @@ Partial Class MainForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuItmFile, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1247, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1271, 24)
         Me.MenuStrip1.TabIndex = 51
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -188,7 +191,7 @@ Partial Class MainForm
         '
         'BtnExit
         '
-        Me.BtnExit.Location = New System.Drawing.Point(93, 243)
+        Me.BtnExit.Location = New System.Drawing.Point(1056, 272)
         Me.BtnExit.Name = "BtnExit"
         Me.BtnExit.Size = New System.Drawing.Size(101, 23)
         Me.BtnExit.TabIndex = 52
@@ -275,10 +278,6 @@ Partial Class MainForm
         Me.CartridgeDataSet.DataSetName = "CartridgeDataSet"
         Me.CartridgeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'LoadsTableAdapter
-        '
-        Me.LoadsTableAdapter.ClearBeforeFill = True
-        '
         'txtLoadId
         '
         Me.txtLoadId.Location = New System.Drawing.Point(6, 19)
@@ -289,9 +288,9 @@ Partial Class MainForm
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 298)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 347)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1247, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1271, 22)
         Me.StatusStrip1.TabIndex = 57
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -302,7 +301,7 @@ Partial Class MainForm
         '
         'btnViewAll
         '
-        Me.btnViewAll.Location = New System.Drawing.Point(12, 186)
+        Me.btnViewAll.Location = New System.Drawing.Point(147, 75)
         Me.btnViewAll.Name = "btnViewAll"
         Me.btnViewAll.Size = New System.Drawing.Size(100, 23)
         Me.btnViewAll.TabIndex = 58
@@ -313,6 +312,7 @@ Partial Class MainForm
         '
         Me.GroupBox2.Controls.Add(Me.txtLoadId)
         Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.btnViewAll)
         Me.GroupBox2.Controls.Add(Me.cboCartridge)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.btnView)
@@ -323,13 +323,30 @@ Partial Class MainForm
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Search For Loads"
         '
+        'LoadsTableAdapter
+        '
+        Me.LoadsTableAdapter.ClearBeforeFill = True
+        '
+        'btnModify
+        '
+        Me.btnModify.Location = New System.Drawing.Point(419, 272)
+        Me.btnModify.Name = "btnModify"
+        Me.btnModify.Size = New System.Drawing.Size(102, 23)
+        Me.btnModify.TabIndex = 60
+        Me.btnModify.Text = "Modify This Load"
+        Me.btnModify.UseVisualStyleBackColor = True
+        '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1247, 320)
+        Me.ClientSize = New System.Drawing.Size(1271, 369)
+        Me.Controls.Add(Me.btnModify)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.btnViewAll)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.dgvLoadList)
         Me.Controls.Add(Me.BtnExit)
@@ -349,6 +366,7 @@ Partial Class MainForm
         Me.StatusStrip1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -389,4 +407,6 @@ Partial Class MainForm
     Friend WithEvents lblStatus As ToolStripStatusLabel
     Friend WithEvents btnViewAll As Button
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents btnModify As Button
+    Friend WithEvents errProvider As ErrorProvider
 End Class

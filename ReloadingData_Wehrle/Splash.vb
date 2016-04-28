@@ -1,6 +1,10 @@
-﻿Public NotInheritable Class AboutReloadingData
+﻿Public NotInheritable Class Splash
 
-
+    ''' <summary>
+    ''' splash screen auto code. Fills the names and revisions on the splash screen
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub AboutReloadingData_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'Set up the dialog text at runtime according to the application's assembly information.  
 
@@ -30,7 +34,4 @@
 
     End Sub
 
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
-    End Sub
 End Class

@@ -87,10 +87,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutReloadingData.Designer.vb">
-      <DependentUpon>AboutReloadingData.vb</DependentUpon>
+    <Compile Include="AboutBox1.Designer.vb">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>
-    <Compile Include="AboutReloadingData.vb">
+    <Compile Include="AboutBox1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.Designer.vb">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddComponents.Designer.vb">
@@ -136,6 +142,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Loads.vb" />
+    <Compile Include="ModifyLoad.Designer.vb">
+      <DependentUpon>ModifyLoad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyLoad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -155,8 +167,11 @@
     <Compile Include="Velocity.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AboutReloadingData.resx">
-      <DependentUpon>AboutReloadingData.vb</DependentUpon>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddComponents.resx">
       <DependentUpon>AddComponents.vb</DependentUpon>
@@ -172,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyLoad.resx">
+      <DependentUpon>ModifyLoad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

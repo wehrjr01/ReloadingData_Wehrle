@@ -37,7 +37,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateSplashScreen()
-            Me.SplashScreen = Global.ReloadingData_Wehrle.AboutReloadingData
+            Me.SplashScreen = Global.ReloadingData_Wehrle.Splash
         End Sub
     End Class
 End Namespace

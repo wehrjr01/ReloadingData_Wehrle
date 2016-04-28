@@ -8,7 +8,10 @@ Public Class AddComponents
     Private mBullets As New Bullets
     Private mCartridge As New Cartridge
 
-
+    ''' <summary>
+    ''' get components function that uses array to fill the combo box to select the type of component to be added. 
+    ''' </summary>
+    ''' <returns>an array of possible component types that can be selected</returns>
     Public Shared Function GetComponents() As String()
         Dim length As Integer = mComponents.Length
         Dim array(length - 1) As String
@@ -21,7 +24,7 @@ Public Class AddComponents
     End Function
 
     ''' <summary>
-    '''     Fills the drop down box For items To add new testing
+    ''' page load event, Fills the drop down box For items To add new testing
     ''' </summary>
 
     Private Sub AddComponents_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -29,8 +32,29 @@ Public Class AddComponents
         radRifle.Checked = True
 
     End Sub
-
+    ''' <summary>
+    ''' component type combo box changed- sets the input fields based on the combo box selection. Only certain inputs and types are required for each component type
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub cboComponentType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboComponentType.SelectedIndexChanged
+        resetFrm()
+        lblStatus.Text = ""
+    End Sub
+    ''' <summary>
+    ''' return button handler- closes this form 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
+        Me.Close()
+
+
+    End Sub
+    ''' <summary>
+    ''' reset from routine. Sets the form up based on the type combo box and clears all the other fields out
+    ''' </summary>
+    Private Sub resetFrm()
         txtID.Enabled = True
         txt1.Enabled = True
         txt2.Enabled = True
@@ -42,7 +66,6 @@ Public Class AddComponents
         txt3.Text = ""
         txt4.Text = ""
         errProvider.Clear()
-        lblStatus.Text = ""
         lbl1.Text = ""
         lbl2.Text = ""
         lbl3.Text = ""
@@ -81,13 +104,6 @@ Public Class AddComponents
             Me.PowderTableAdapter.Fill(Me.CartridgeDataSet.Powder)
             txt1.Focus()
         End If
-
-    End Sub
-
-    Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
-        Me.Close()
-
-
     End Sub
     ''' <summary>
     ''' add button function - handles adding to any of the 3 components databases
@@ -98,6 +114,7 @@ Public Class AddComponents
         lblStatus.Text = ""
         errProvider.Clear()
 
+        'adds a powder item to its table
         If cboComponentType.SelectedValue Is "Powder" Then
             Dim manufacturer As String
             Dim name As String
@@ -119,14 +136,14 @@ Public Class AddComponents
             If mPowders.Insert(manufacturer, name, riflechk) = True Then
                 lblStatus.Text = "Powder added successfully"
                 Me.PowderTableAdapter.Fill(Me.CartridgeDataSet.Powder)
-                txt1.Focus()
+                resetFrm()
             Else
-                lblStatus.Text = "Cannot Add Powder, it already exists " '& Powders.LastError
+                lblStatus.Text = "Cannot Add Powder, it already exists " & 'mPowders.LastError
                 txt1.Focus()
             End If
         End If
 
-
+        'adds a bullet item to its table
         If cboComponentType.SelectedValue Is "Bullet" Then
             Dim bulletId As Integer
             Dim diameter As Decimal
@@ -191,15 +208,15 @@ Public Class AddComponents
             If mBullets.Insert(bulletId, diameter, brand, weight, type, riflechk) = True Then
                 lblStatus.Text = "Bullet added successfully"
                 Me.BulletTableAdapter.Fill(Me.CartridgeDataSet.Bullet)
-                txtID.Focus()
+                resetFrm()
             Else
-                lblStatus.Text = "Cannot add bullet, it already exists " '& Bullet.LastError
+                lblStatus.Text = "Cannot add bullet, it already exists " & 'Bullet.LastError
                 txtID.Focus()
                 Return
             End If
         End If
 
-
+        'adds a cartridge to its table
         If cboComponentType.SelectedValue Is "Cartridge" Then
 
             Dim name As String
@@ -229,25 +246,10 @@ Public Class AddComponents
             If mCartridge.Insert(name, caliber, riflechk) = True Then
                 lblStatus.Text = "Cartridge added successfully"
                 Me.CartridgeTableAdapter.Fill(Me.CartridgeDataSet.Cartridge)
+                resetFrm()
             Else
                 lblStatus.Text = "Cannot add cartridge, it already exists " '& Cartridge.LastError
                 Return
-            End If
-        End If
-
-
-    End Sub
-
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        If cboComponentType.SelectedValue Is "Cartridge" Then
-            If dgvComponents.SelectedRows.Count > 0 Then
-                Dim compId As String = CStr(dgvComponents.SelectedRows(0).Cells(0).Value)
-                If mCartridge.Delete(compId) Then
-                    'dgvComponents.DataSource = mCartridge.Items
-                    Me.CartridgeTableAdapter.Fill(Me.CartridgeDataSet.Cartridge)
-                Else
-                    MessageBox.Show("Unable to delete this item")
-                End If
             End If
         End If
     End Sub

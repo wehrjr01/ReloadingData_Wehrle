@@ -1,4 +1,7 @@
-﻿Public Class Velocity
+﻿Option Strict On
+Option Explicit On
+
+Public Class Velocity
     Private adapter As New CartridgeDataSetTableAdapters.ChronoDataTableAdapter
     Public Shared Property LastError As String
     ''' <summary>
@@ -13,7 +16,7 @@
                            ByVal firedDate As Date) As Boolean
         Try
             LastError = String.Empty
-            adapter.Insert(velo, loadId, firedDate)
+            adapter.Insert(velo, loadId, CType(firedDate, String))
             Return True
         Catch ex As Exception
             LastError = ex.Message

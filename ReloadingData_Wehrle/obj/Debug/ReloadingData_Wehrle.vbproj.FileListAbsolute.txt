@@ -120,5 +120,7 @@
 \\Mac\Home\Desktop\ReloadingData_Wehrle - Copy\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.MainForm.resources
 \\Mac\Home\Desktop\ReloadingData_Wehrle - Copy\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.Resources.resources
 \\Mac\Home\Desktop\ReloadingData_Wehrle - Copy\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.vbproj.GenerateResource.Cache
-\\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.AboutReloadingData.resources
 \\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.MainForm.resources
+\\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.ModifyLoad.resources
+\\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.AboutBox1.resources
+\\Mac\Home\Desktop\ReloadingData_Wehrle\ReloadingData_Wehrle\obj\Debug\ReloadingData_Wehrle.Splash.resources
