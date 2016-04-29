@@ -120,6 +120,7 @@ Public Class ChronoData
             Else
                 lblStatus.Text = "Velocity not deleted"
             End If
+        Else MessageBox.Show("Select a velocity to delete")
         End If
     End Sub
 
